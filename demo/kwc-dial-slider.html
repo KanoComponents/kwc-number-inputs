@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="module" src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+</head>
+
+<body>
+    <kwc-dial-slider></kwc-dial-slider>
+    <script type="module">
+        import '../kwc-dial-slider.js';
+        const el = document.querySelector('kwc-dial-slider');
+        el.addEventListener('value-changed', (e) => { console.log(e.detail); });
+    </script>
+</body>
+
+</html>
