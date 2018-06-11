@@ -7,7 +7,6 @@ class KwcNumpad extends PolymerElement {
             <style>
                 :host {
                     display: block;
-                    text-align: center;
                 }
             
                 :host::selection,
