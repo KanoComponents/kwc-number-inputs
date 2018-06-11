@@ -15,7 +15,8 @@ class KwcSlider extends PolymerElement {
                 :host::selection,
                 :host *::selection {
                     background-color: transparent;
-                }.slider {
+                }
+                .slider {
                     -webkit-appearance: none;
                     width: 100%;
                     height: 3px;
@@ -27,16 +28,16 @@ class KwcSlider extends PolymerElement {
                 }
                 .slider::-webkit-slider-thumb {
                     -webkit-appearance: none;
-                    width: 11.5px;
-                    height: 18.5px;
+                    width: 14px;
+                    height: 20.5px;
                     background: #FF6B00;
                     border: 1.5px solid #fff;
                     border-radius: 25px;
                     cursor: pointer;
                 }
                 .slider::-moz-range-thumb {
-                    width: 11.5px;
-                    height: 18.5px;
+                    width: 14px;
+                    height: 20.5px;
                     background: #FF6B00;
                     border: 1.5px solid #fff;
                     border-radius: 25px;
