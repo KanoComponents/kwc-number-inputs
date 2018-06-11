@@ -31,6 +31,11 @@ class KwcDialSlider extends PolymerElement {
                 notify: true,
                 observer: '_valueChanged',
             },
+            max: {
+                type: Number,
+                value: 100,
+                notify: true,
+            },
         };
     }
 
@@ -38,6 +43,7 @@ class KwcDialSlider extends PolymerElement {
         super.connectedCallback();
         this.attachListeners();
         this.applyColors();
+        this.applyMax();
     }
 
     disconnectedCallback() {
@@ -87,6 +93,11 @@ class KwcDialSlider extends PolymerElement {
                 this.style.setProperty(`--${attrib.name}`, attrib.value);
             }
         });
+    }
+
+    applyMax() {
+        let max = this.max;console.log(this, max);
+        this.shadowRoot.querySelector("kwc-slider").setAttribute("max", max);
     }
 }
 customElements.define(KwcDialSlider.is, KwcDialSlider);

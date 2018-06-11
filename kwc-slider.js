@@ -45,7 +45,7 @@ class KwcSlider extends PolymerElement {
                     cursor: pointer;
                 }
             </style>
-            <input type='range' min='0' max='360' value='{{value}}' class='slider' id='horizontalSlider'>
+            <input type='range' min='0' max='{{max}}' value='{{value}}' class='slider' id='horizontalSlider'>
         `;
     }
 
@@ -54,9 +54,14 @@ class KwcSlider extends PolymerElement {
         return {
             value: {
                 type: Number,
-                notify: true,
                 value: 0,
+                notify: true,
             },
+            max: {
+                type: Number,
+                value: 100,
+                notify: true,
+            }
         };
     }
 
@@ -64,6 +69,7 @@ class KwcSlider extends PolymerElement {
         super.connectedCallback();
         this.attachListeners();
         this.applyColors();
+        this.applyMax();
     }
 
     disconnectedCallback() {
@@ -105,6 +111,11 @@ class KwcSlider extends PolymerElement {
                 this.style.setProperty(`--${attrib.name}`, attrib.value);
             }
         });
+    }
+
+    applyMax() {
+        let max = this.getAttribute("max");
+        this.set("max", max);
     }
 }
 customElements.define(KwcSlider.is, KwcSlider);
