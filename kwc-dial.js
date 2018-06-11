@@ -78,33 +78,6 @@ class KwcDial extends PolymerElement {
                     cursor: pointer;
                     z-index: 1;
                 }
-                .slider {
-                    -webkit-appearance: none;
-                    width: 100%;
-                    height: 3px;
-                    background: #1A1A1A;
-                    position: relative;
-                    right: 1.5px;
-                    outline: none;
-                    border-radius: 25px;
-                }
-                .slider::-webkit-slider-thumb {
-                    -webkit-appearance: none;
-                    width: 11.5px;
-                    height: 18.5px;
-                    background: #FF6B00;
-                    border: 1.5px solid #fff;
-                    border-radius: 25px;
-                    cursor: pointer;
-                }
-                .slider::-moz-range-thumb {
-                    width: 11.5px;
-                    height: 18.5px;
-                    background: #FF6B00;
-                    border: 1.5px solid #fff;
-                    border-radius: 25px;
-                    cursor: pointer;
-                }
                 .circle-degrees {
                     width: 175px;
                     height: 165px;
