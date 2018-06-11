@@ -18,8 +18,8 @@ class KwcNumpad extends PolymerElement {
                 button {
                     width: 56px;
                     height: 50px;
-                    background-color: var(--color3, #22272D);
-                    color: var(--color4, #FFF);
+                    background-color: var(--color-3, #22272D);
+                    color: var(--color-4, #FFF);
                     border: none;
                     border-radius: 5px;
                     margin: 2px 0;
@@ -35,7 +35,7 @@ class KwcNumpad extends PolymerElement {
                 }
             
                 button:hover {
-                    background-color: var(--color2, #FF6B00);
+                    background-color: var(--color-2, #FF6B00);
                 }
             
                 button:focus {
@@ -91,6 +91,7 @@ class KwcNumpad extends PolymerElement {
         super.connectedCallback();
         this.updateResult = this.updateResult.bind(this);
         this.attachListeners();
+        this.applyColors();
     }
     disconnectedCallback() {
         super.disconnectedCallback();
@@ -149,6 +150,18 @@ class KwcNumpad extends PolymerElement {
     _valueChanged() {
         this.stringValue = this.value;
         this.set("resultOverride", false);
+    }
+
+    applyColors() {
+        let attributes = this.attributes;
+
+        Object.keys(attributes).forEach((attribute, index) => {
+            let attrib = attributes[index];
+            
+            if(attrib.name.startsWith("color-")) {
+                this.style.setProperty(`--${attrib.name}`, attrib.value);
+            }
+        });
     }
 }
 customElements.define(KwcNumpad.is, KwcNumpad);

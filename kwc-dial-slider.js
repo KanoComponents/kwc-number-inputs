@@ -9,7 +9,7 @@ class KwcDialSlider extends PolymerElement {
             <style>
                 :host {
                     display: inline-block;
-                    background-color: var(--color5, #292F35);
+                    background-color: var(--color-5, #292F35);
                     z-index: 100000;
                     border-radius: 5px;
                 }
@@ -37,6 +37,7 @@ class KwcDialSlider extends PolymerElement {
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
+        this.applyColors();
     }
 
     disconnectedCallback() {
@@ -74,6 +75,18 @@ class KwcDialSlider extends PolymerElement {
 
         slider.set("value", this.value);
         dial.set("value", this.value);
+    }
+
+    applyColors() {
+        let attributes = this.attributes;
+
+        Object.keys(attributes).forEach((attribute, index) => {
+            let attrib = attributes[index];
+            
+            if(attrib.name.startsWith("color-")) {
+                this.style.setProperty(`--${attrib.name}`, attrib.value);
+            }
+        });
     }
 }
 customElements.define(KwcDialSlider.is, KwcDialSlider);
