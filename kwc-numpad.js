@@ -77,6 +77,7 @@ class KwcNumpad extends PolymerElement {
                 type: Number,
                 notify: true,
                 value: 0,
+                observer: '_valueChanged',
             },
         };
     }
@@ -142,6 +143,11 @@ class KwcNumpad extends PolymerElement {
                 }
         }
         this.set('value', parseFloat(this.stringValue, 10));
+    }
+
+    _valueChanged() {
+        this.stringValue = this.value;
+        this.set("resultOverride", false);
     }
 }
 customElements.define(KwcNumpad.is, KwcNumpad);
