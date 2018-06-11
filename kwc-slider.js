@@ -43,7 +43,7 @@ class KwcSlider extends PolymerElement {
                     cursor: pointer;
                 }
             </style>
-            <input type='range' min='0' max='360' value='0' class='slider' id='horizontalSlider'>
+            <input type='range' min='0' max='360' value='{{value}}' class='slider' id='horizontalSlider'>
         `;
     }
 
