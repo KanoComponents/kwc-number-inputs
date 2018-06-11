@@ -1,5 +1,6 @@
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+import '@polymer/polymer/lib/elements/custom-style.js';
 
 class KwcDial extends PolymerElement {
     static get template() {
@@ -8,7 +9,7 @@ class KwcDial extends PolymerElement {
                 :host {
                     display: inline-block;
                     padding: 40px 25px 20px;
-                    background-color: #292F35;
+                    background-color: var(--color5, #292F35);
                     z-index: 100000;
                     border-radius: 5px;
                 }
@@ -35,7 +36,7 @@ class KwcDial extends PolymerElement {
                     text-align: center;
                     font-family: Bariol, Helvetica, Arial, sans-serif;
                     font-weight: 600;
-                    color: #fff;
+                    color: var(--color4, #FFF);
                 }
                 .circular-slider span {
                     font-size: 25px;
@@ -49,7 +50,7 @@ class KwcDial extends PolymerElement {
                 .circle { 
                     width: 99.5px; 
                     height: 98px;
-                    border: 5px solid #1A1A1A; 
+                    border: 5px solid var(--color1, #1A1A1A); 
                     border-radius:100%;
                     margin: 0 auto;
                     position: relative;
@@ -60,7 +61,7 @@ class KwcDial extends PolymerElement {
                     width: 86px;
                     height: 86px;
                     border-radius: 100%;
-                    background-color: #1A1A1A;
+                    background-color: var(--color1, #1A1A1A);
                     position: absolute;
                     top: 50%;
                     left: 50%;
@@ -70,8 +71,8 @@ class KwcDial extends PolymerElement {
                     position: relative; 
                     height: 12px;
                     width: 12px;
-                    border: 1.9px solid #fff;
-                    background: #FF6B00; 
+                    border: 1.9px solid var(--color4, #FFF);
+                    background: var(--color2, #FF6B00); 
                     left: 40px;
                     top: -9px;
                     border-radius: 100%;
@@ -93,7 +94,7 @@ class KwcDial extends PolymerElement {
                     font-family: Bariol, Helvetica, Arial, sans-serif;
                     font-size: 12px;
                     font-weight: 500;
-                    color: #fff;
+                    color: var(--color4, #FFF);
                     width: 21px;
                     text-align: center;
                 }

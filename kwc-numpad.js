@@ -1,5 +1,6 @@
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+import '@polymer/polymer/lib/elements/custom-style.js';
 
 class KwcNumpad extends PolymerElement {
     static get template() {
@@ -17,8 +18,8 @@ class KwcNumpad extends PolymerElement {
                 button {
                     width: 56px;
                     height: 50px;
-                    background-color: #22272D;
-                    color: #fff;
+                    background-color: var(--color3, #22272D);
+                    color: var(--color4, #FFF);
                     border: none;
                     border-radius: 5px;
                     margin: 2px 0;
@@ -34,7 +35,7 @@ class KwcNumpad extends PolymerElement {
                 }
             
                 button:hover {
-                    background-color: #FF6B00;
+                    background-color: var(--color2, #FF6B00);
                 }
             
                 button:focus {

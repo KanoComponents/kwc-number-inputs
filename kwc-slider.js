@@ -1,5 +1,6 @@
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+import '@polymer/polymer/lib/elements/custom-style.js';
 
 class KwcSlider extends PolymerElement {
     static get template() {
@@ -8,7 +9,7 @@ class KwcSlider extends PolymerElement {
                 :host {
                     display: inline-block;
                     padding: 16.5px 21px 23.5px 20px;
-                    background-color: #292F35;
+                    background-color: var(--color5, #292F35);
                     z-index: 100000;
                     border-radius: 5px;
                 }
@@ -20,7 +21,7 @@ class KwcSlider extends PolymerElement {
                     -webkit-appearance: none;
                     width: 100%;
                     height: 3px;
-                    background: #1A1A1A;
+                    background: var(--color1, #1A1A1A);
                     position: relative;
                     right: 1.5px;
                     outline: none;
@@ -30,16 +31,16 @@ class KwcSlider extends PolymerElement {
                     -webkit-appearance: none;
                     width: 14px;
                     height: 20.5px;
-                    background: #FF6B00;
-                    border: 1.5px solid #fff;
+                    background: var(--color2, #FF6B00);
+                    border: 1.5px solid var(--color4, #FFF);
                     border-radius: 25px;
                     cursor: pointer;
                 }
                 .slider::-moz-range-thumb {
                     width: 14px;
                     height: 20.5px;
-                    background: #FF6B00;
-                    border: 1.5px solid #fff;
+                    background: var(--color2, #FF6B00);
+                    border: 1.5px solid var(--color4, #FFF);
                     border-radius: 25px;
                     cursor: pointer;
                 }
