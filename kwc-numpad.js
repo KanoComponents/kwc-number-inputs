@@ -61,7 +61,7 @@ class KwcNumpad extends PolymerElement {
                 <button value='.'>.</button>
                 <button value='0'>0</button>
                 <button value='canc'>
-                    <img src='kit-app://index/node_modules/kit-app-ui/node_modules/kwc-blockly-numpad/assets/svg/canc.svg'>
+                    <img src='./assets/canc.svg'>
                 </button>
             </div>
         `;
