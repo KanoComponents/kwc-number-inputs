@@ -12,12 +12,12 @@ class KwcDialNumpad extends PolymerElement {
                     background-color: var(--kwc-numpad-background, #292F35);
                     z-index: 100000;
                     border-radius: 5px;
-                    padding-bottom: 16px;
                 }
                 kwc-dial {
-                    padding: 40px 17px 15px;
+                    padding: 40px 17px 0;
                 }
                 kwc-numpad {
+                    display: block;
                     text-align: center;
                 }
             </style>

@@ -12,10 +12,11 @@ class KwcSliderNumpad extends PolymerElement {
                     background-color: var(--kwc-numpad-background, #292F35);
                     z-index: 100000;
                     border-radius: 5px;
-                    padding: 4px 17px 16px;
+                    padding-top: 4px;
                 }
-                kwc-numpad {
-                    text-align: center;
+                kwc-slider {
+                    display: block;
+                    padding-bottom: 9.5px;
                 }
             </style>
             <kwc-slider></kwc-slider>
