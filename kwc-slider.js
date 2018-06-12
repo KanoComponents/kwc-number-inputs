@@ -68,7 +68,6 @@ class KwcSlider extends PolymerElement {
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
-        this.applyColors();
         this.applyMax();
     }
 
@@ -98,18 +97,6 @@ class KwcSlider extends PolymerElement {
 
         horizontalSlider.removeEventListener('input', () => {
             this.set('value', horizontalSlider.value);
-        });
-    }
-
-    applyColors() {
-        let attributes = this.attributes;
-
-        Object.keys(attributes).forEach((attribute, index) => {
-            let attrib = attributes[index];
-            
-            if(attrib.name.startsWith("color-")) {
-                this.style.setProperty(`--${attrib.name}`, attrib.value);
-            }
         });
     }
 

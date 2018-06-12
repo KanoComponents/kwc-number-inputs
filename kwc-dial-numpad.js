@@ -40,7 +40,6 @@ class KwcDialNumpad extends PolymerElement {
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
-        this.applyColors();
     }
 
     disconnectedCallback() {
@@ -78,18 +77,6 @@ class KwcDialNumpad extends PolymerElement {
 
         dial.set("value", this.value);
         numpad.set("value", this.value);
-    }
-
-    applyColors() {
-        let attributes = this.attributes;
-
-        Object.keys(attributes).forEach((attribute, index) => {
-            let attrib = attributes[index];
-            
-            if(attrib.name.startsWith("color-")) {
-                this.style.setProperty(`--${attrib.name}`, attrib.value);
-            }
-        });
     }
 }
 customElements.define(KwcDialNumpad.is, KwcDialNumpad);

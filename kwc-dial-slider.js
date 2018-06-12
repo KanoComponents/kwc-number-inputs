@@ -42,7 +42,6 @@ class KwcDialSlider extends PolymerElement {
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
-        this.applyColors();
         this.applyMax();
     }
 
@@ -81,18 +80,6 @@ class KwcDialSlider extends PolymerElement {
 
         slider.set("value", this.value);
         dial.set("value", this.value);
-    }
-
-    applyColors() {
-        let attributes = this.attributes;
-
-        Object.keys(attributes).forEach((attribute, index) => {
-            let attrib = attributes[index];
-            
-            if(attrib.name.startsWith("color-")) {
-                this.style.setProperty(`--${attrib.name}`, attrib.value);
-            }
-        });
     }
 
     applyMax() {

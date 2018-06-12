@@ -161,7 +161,6 @@ class KwcDial extends PolymerElement {
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
-        this.applyColors();
     }
 
     disconnectedCallback() {
@@ -296,18 +295,6 @@ class KwcDial extends PolymerElement {
         slider.style.left = X + radius - sliderW2 + 'px';
 
         slider.style.transform = 'rotate(' + deg + 'deg)';
-    }
-
-    applyColors() {
-        let attributes = this.attributes;
-
-        Object.keys(attributes).forEach((attribute, index) => {
-            let attrib = attributes[index];
-            
-            if(attrib.name.startsWith("color-")) {
-                this.style.setProperty(`--${attrib.name}`, attrib.value);
-            }
-        });
     }
 }
 customElements.define(KwcDial.is, KwcDial);

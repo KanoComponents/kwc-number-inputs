@@ -91,7 +91,6 @@ class KwcNumpad extends PolymerElement {
         super.connectedCallback();
         this.updateResult = this.updateResult.bind(this);
         this.attachListeners();
-        this.applyColors();
     }
     disconnectedCallback() {
         super.disconnectedCallback();
@@ -150,18 +149,6 @@ class KwcNumpad extends PolymerElement {
     _valueChanged() {
         this.stringValue = this.value;
         this.set("resultOverride", false);
-    }
-
-    applyColors() {
-        let attributes = this.attributes;
-
-        Object.keys(attributes).forEach((attribute, index) => {
-            let attrib = attributes[index];
-            
-            if(attrib.name.startsWith("color-")) {
-                this.style.setProperty(`--${attrib.name}`, attrib.value);
-            }
-        });
     }
 }
 customElements.define(KwcNumpad.is, KwcNumpad);
