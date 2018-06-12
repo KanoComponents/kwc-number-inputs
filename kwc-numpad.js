@@ -9,17 +9,15 @@ class KwcNumpad extends PolymerElement {
                 :host {
                     display: block;
                 }
-            
                 :host::selection,
                 :host *::selection {
                     background-color: transparent;
                 }
-            
                 button {
                     width: 56px;
                     height: 50px;
                     background: var(--kwc-numpad-button-background, #22272D);
-                    color: var(--color-4, #FFF);
+                    color: var(--kwc-numpad-button-color, #FFF);
                     border: none;
                     border-radius: 5px;
                     margin: 2px 0;
@@ -29,15 +27,13 @@ class KwcNumpad extends PolymerElement {
                     font-weight: 600;
                     transition: background-color 0.2s ease;
                 }
-            
                 button[value='canc'] img {
                     width: 20px;
                 }
-            
                 button:hover {
                     background-color: var(--kwc-numpad-button-background-hover, #FF6B00);
+                    color: var(--kwc-numpad-button-color-hover, #FFF);
                 }
-            
                 button:focus {
                     outline: none;
                 }

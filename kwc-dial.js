@@ -37,6 +37,11 @@ class KwcDial extends PolymerElement {
                     font-family: Bariol, Helvetica, Arial, sans-serif;
                     font-weight: 600;
                     color: var(--kwc-numpad-dial-text-color, #FFF);
+                    transition: all 0.2s ease;
+                }
+                .circular-slider span:hover,
+                .circular-slider sup:hover {
+                    color: var(--kwc-numpad-dial-text-color-hover, #FFF);
                 }
                 .circular-slider span {
                     font-size: 25px;
@@ -54,6 +59,10 @@ class KwcDial extends PolymerElement {
                     border-radius:100%;
                     margin: 0 auto;
                     position: relative;
+                    transition: all 0.2s ease;
+                }
+                .circle:hover { 
+                    border-color: var(--kwc-numpad-dial-background-hover, #1A1A1A); 
                 }
                 .circle:after {
                     content: '';
@@ -66,6 +75,10 @@ class KwcDial extends PolymerElement {
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
+                    transition: all 0.2s ease;
+                }
+                .circle:hover:after {
+                    background-color: var(--kwc-numpad-dial-background-hover, #1A1A1A);
                 }
                 #circularSlider { 
                     position: relative; 
@@ -78,6 +91,12 @@ class KwcDial extends PolymerElement {
                     border-radius: 100%;
                     cursor: pointer;
                     z-index: 1;
+                    transition: border-color 0.2s ease,
+                                background 0.2s ease;
+                }
+                #circularSlider:hover {
+                    border-color: var(--kwc-numpad-dial-border-color-hover, #FFF);
+                    background: var(--kwc-numpad-dial-color-hover, #FF6B00); 
                 }
                 .circle-degrees {
                     width: 175px;
@@ -97,6 +116,10 @@ class KwcDial extends PolymerElement {
                     color: var(--kwc-numpad-dial-round-text, #FFF);
                     width: 21px;
                     text-align: center;
+                    transition: all 0.2s ease;
+                }
+                .circle-degrees p:hover {
+                    color: var(--kwc-numpad-dial-round-text-hover, #FFF);
                 }
                 .circle-degrees p#zero {
                     top: 0;

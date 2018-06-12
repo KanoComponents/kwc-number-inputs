@@ -21,11 +21,15 @@ class KwcSlider extends PolymerElement {
                     -webkit-appearance: none;
                     width: 100%;
                     height: 3px;
-                    background: var(--kwc-numpad-slider-color, #1A1A1A);
+                    background-color: var(--kwc-numpad-slider-color, #1A1A1A);
                     position: relative;
                     right: 1.5px;
                     outline: none;
                     border-radius: 25px;
+                    transition: all 0.2s ease;
+                }
+                .slider:hover {
+                    background-color: var(--kwc-numpad-slider-color-hover, #1A1A1A);
                 }
                 .slider::-webkit-slider-thumb {
                     -webkit-appearance: none;
@@ -35,12 +39,31 @@ class KwcSlider extends PolymerElement {
                     border: 1.5px solid var(--kwc-numpad-slider-border-color, #FFF);
                     border-radius: 25px;
                     cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+                .slider:hover::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    width: 14px;
+                    height: 20.5px;
+                    background: var(--kwc-numpad-slider-background-hover, #FF6B00);
+                    border: 1.5px solid var(--kwc-numpad-slider-border-color-hover, #FFF);
+                    border-radius: 25px;
+                    cursor: pointer;
                 }
                 .slider::-moz-range-thumb {
                     width: 14px;
                     height: 20.5px;
                     background: var(--kwc-numpad-slider-background, #FF6B00);
                     border: 1.5px solid var(--kwc-numpad-slider-border-color, #FFF);
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+                .slider:hover::-moz-range-thumb {
+                    width: 14px;
+                    height: 20.5px;
+                    background: var(--kwc-numpad-slider-background-hover, #FF6B00);
+                    border: 1.5px solid var(--kwc-numpad-slider-border-color-hover, #FFF);
                     border-radius: 25px;
                     cursor: pointer;
                 }
