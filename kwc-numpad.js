@@ -7,7 +7,11 @@ class KwcNumpad extends PolymerElement {
         return html`
             <style>
                 :host {
-                    display: block;
+                    display: inline-block;
+                    background-color: var(--kwc-numpad-background, #292F35);
+                    z-index: 100000;
+                    border-radius: 5px;
+                    padding: 16px;
                 }
                 :host::selection,
                 :host *::selection {
