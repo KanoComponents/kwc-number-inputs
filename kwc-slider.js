@@ -9,7 +9,7 @@ class KwcSlider extends PolymerElement {
                 :host {
                     display: inline-block;
                     padding: 16.5px 21px 23.5px 20px;
-                    background-color: var(--color-5, #292F35);
+                    background-color: var(--kwc-numpad-background, #292F35);
                     z-index: 100000;
                     border-radius: 5px;
                 }
@@ -21,7 +21,7 @@ class KwcSlider extends PolymerElement {
                     -webkit-appearance: none;
                     width: 100%;
                     height: 3px;
-                    background: var(--color-1, #1A1A1A);
+                    background: var(--kwc-numpad-slider-color, #1A1A1A);
                     position: relative;
                     right: 1.5px;
                     outline: none;
@@ -31,16 +31,16 @@ class KwcSlider extends PolymerElement {
                     -webkit-appearance: none;
                     width: 14px;
                     height: 20.5px;
-                    background: var(--color-2, #FF6B00);
-                    border: 1.5px solid var(--color-4, #FFF);
+                    background: var(--kwc-numpad-slider-background, #FF6B00);
+                    border: 1.5px solid var(--kwc-numpad-slider-border-color, #FFF);
                     border-radius: 25px;
                     cursor: pointer;
                 }
                 .slider::-moz-range-thumb {
                     width: 14px;
                     height: 20.5px;
-                    background: var(--color-2, #FF6B00);
-                    border: 1.5px solid var(--color-4, #FFF);
+                    background: var(--kwc-numpad-slider-background, #FF6B00);
+                    border: 1.5px solid var(--kwc-numpad-slider-border-color, #FFF);
                     border-radius: 25px;
                     cursor: pointer;
                 }

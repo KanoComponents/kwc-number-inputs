@@ -18,7 +18,7 @@ class KwcNumpad extends PolymerElement {
                 button {
                     width: 56px;
                     height: 50px;
-                    background-color: var(--color-3, #22272D);
+                    background: var(--kwc-numpad-button-background, #22272D);
                     color: var(--color-4, #FFF);
                     border: none;
                     border-radius: 5px;
@@ -35,7 +35,7 @@ class KwcNumpad extends PolymerElement {
                 }
             
                 button:hover {
-                    background-color: var(--color-2, #FF6B00);
+                    background-color: var(--kwc-numpad-button-background-hover, #FF6B00);
                 }
             
                 button:focus {
