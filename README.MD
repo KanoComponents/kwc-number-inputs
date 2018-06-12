@@ -13,6 +13,8 @@
     - `--kwc-numpad-button-color`
     - `--kwc-numpad-button-color-hover`
 
+<br/>
+
 ## `<kwc-slider>`
 
 ### Usage:
@@ -40,6 +42,8 @@ or
         - optional
         - default is `100`
 
+<br/>
+
 ## `<kwc-dial>`
 
 ### Usage:
@@ -61,7 +65,9 @@ or
     - `--kwc-numpad-dial-round-text-hover`
     - `--kwc-numpad-dial-center-text`
     - `--kwc-numpad-dial-center-text-hover`
-    
+
+<br/>
+
 ## `<kwc-slider-numpad>`
 
 ### Usage:
@@ -93,6 +99,8 @@ or
         - optional
         - default is `100`
 
+<br/>
+
 ## `<kwc-dial-numpad>`
 
 ### Usage:
@@ -117,6 +125,8 @@ or
     - `--kwc-numpad-dial-round-text-hover`
     - `--kwc-numpad-dial-center-text`
     - `--kwc-numpad-dial-center-text-hover`
+
+<br/>
 
 ## `<kwc-dial-slider>`
 
