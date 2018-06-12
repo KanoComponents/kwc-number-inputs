@@ -31,6 +31,11 @@ class KwcDialSlider extends PolymerElement {
                 notify: true,
                 observer: '_valueChanged',
             },
+            min: {
+                type: Number,
+                value: 0,
+                notify: true,
+            },
             max: {
                 type: Number,
                 value: 100,
@@ -42,7 +47,7 @@ class KwcDialSlider extends PolymerElement {
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
-        this.applyMax();
+        this.applyRange();
     }
 
     disconnectedCallback() {
@@ -82,8 +87,11 @@ class KwcDialSlider extends PolymerElement {
         dial.set("value", this.value);
     }
 
-    applyMax() {
+    applyRange() {
+        let min = this.min;
         let max = this.max;
+
+        this.shadowRoot.querySelector("kwc-slider").setAttribute("min", min);
         this.shadowRoot.querySelector("kwc-slider").setAttribute("max", max);
     }
 }

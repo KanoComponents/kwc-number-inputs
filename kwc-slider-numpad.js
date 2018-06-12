@@ -31,6 +31,11 @@ class KwcSliderNumpad extends PolymerElement {
                 notify: true,
                 observer: '_valueChanged',
             },
+            min: {
+                type: Number,
+                value: 0,
+                notify: true,
+            },
             max: {
                 type: Number,
                 value: 100,
@@ -42,7 +47,7 @@ class KwcSliderNumpad extends PolymerElement {
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
-        this.applyMax();
+        this.applyRange();
     }
 
     disconnectedCallback() {
@@ -82,8 +87,11 @@ class KwcSliderNumpad extends PolymerElement {
         numpad.set("value", this.value);
     }
 
-    applyMax() {
-        let max = this.max;console.log(this, max);
+    applyRange() {
+        let min = this.min;
+        let max = this.max;
+
+        this.shadowRoot.querySelector("kwc-slider").setAttribute("min", min);
         this.shadowRoot.querySelector("kwc-slider").setAttribute("max", max);
     }
 }
