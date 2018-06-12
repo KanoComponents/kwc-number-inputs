@@ -83,7 +83,7 @@ class KwcDialSlider extends PolymerElement {
     }
 
     applyMax() {
-        let max = this.max;console.log(this, max);
+        let max = this.max;
         this.shadowRoot.querySelector("kwc-slider").setAttribute("max", max);
     }
 }
