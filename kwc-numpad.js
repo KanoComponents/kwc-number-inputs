@@ -81,6 +81,11 @@ class KwcNumpad extends PolymerElement {
                 value: 0,
                 observer: '_valueChanged',
             },
+            stringValue: {
+                type: String,
+                value: '0',
+                observer: '_stringValueChanged',
+            },
         };
     }
     constructor () {
@@ -144,11 +149,12 @@ class KwcNumpad extends PolymerElement {
                     }
                 }
         }
+    }
+    _stringValueChanged() {
         this.set('value', parseFloat(this.stringValue, 10));
     }
-
     _valueChanged() {
-        this.stringValue = this.value;
+        this.stringValue = typeof this.value === 'undefined' ? '0' : this.value.toString();
         this.set("resultOverride", false);
     }
 }
