@@ -120,7 +120,7 @@ class KwcNumpad extends PolymerElement {
 
         if (resultOverride) {
             this.stringValue = '0';
-            this.set('resultOverride', false)
+            this.set('resultOverride', false);
         }
 
         switch (digit) {
