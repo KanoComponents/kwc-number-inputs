@@ -33,6 +33,7 @@ class KwcNumpad extends PolymerElement {
                 }
                 button[value='canc'] img {
                     width: 20px;
+                    pointer-events: none;
                 }
                 button:hover {
                     background-color: var(--kwc-numpad-button-background-hover, #FF6B00);
