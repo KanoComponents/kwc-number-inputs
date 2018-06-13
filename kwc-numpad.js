@@ -18,8 +18,8 @@ class KwcNumpad extends PolymerElement {
                     background-color: transparent;
                 }
                 button {
-                    width: 56px;
-                    height: 50px;
+                    width: var(--kwc-numpad-button-width, 56px);
+                    height: var(--kwc-numpad-button-height, 50px);
                     background: var(--kwc-numpad-button-background, #22272D);
                     color: var(--kwc-numpad-button-color, #FFF);
                     border: none;
