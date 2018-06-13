@@ -1,5 +1,13 @@
 # kwc-number-inputs
 
+<br/>
+
+***Hey you, do you want the doc for a specific component?***
+
+***Click here and go to [docs](/docs)***
+
+<br/>
+
 ## `<kwc-numpad>`
 
 ### Usage:
