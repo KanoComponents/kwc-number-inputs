@@ -14,6 +14,8 @@
     - `--kwc-numpad-button-background-hover`
     - `--kwc-numpad-button-color`
     - `--kwc-numpad-button-color-hover`
+    - `--kwc-numpad-button-width`
+    - `--kwc-numpad-button-height`
 
 <br/>
 
@@ -108,6 +110,8 @@ or
     - `--kwc-numpad-button-background-hover`
     - `--kwc-numpad-button-color`
     - `--kwc-numpad-button-color-hover`
+    - `--kwc-numpad-button-width`
+    - `--kwc-numpad-button-height`
     - `--kwc-numpad-slider-background`
     - `--kwc-numpad-slider-background-hover`
     - `--kwc-numpad-slider-color`
@@ -145,6 +149,8 @@ or
     - `--kwc-numpad-button-background-hover`
     - `--kwc-numpad-button-color`
     - `--kwc-numpad-button-color-hover`
+    - `--kwc-numpad-button-width`
+    - `--kwc-numpad-button-height`
     - `--kwc-numpad-dial-background`
     - `--kwc-numpad-dial-background-hover`
     - `--kwc-numpad-dial-text-color`
