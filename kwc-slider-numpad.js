@@ -36,11 +36,13 @@ class KwcSliderNumpad extends PolymerElement {
                 type: Number,
                 value: 0,
                 notify: true,
+                observer: 'applyRange',
             },
             max: {
                 type: Number,
                 value: 100,
                 notify: true,
+                observer: 'applyRange',
             },
         };
     }
