@@ -3,7 +3,9 @@
 ## `<kwc-numpad>`
 
 ### Usage:
-`<kwc-numpad></kwc-numpad>`
+```html
+<kwc-numpad></kwc-numpad>
+```
 
 ### Properties:
 - CSS variables:
@@ -18,11 +20,15 @@
 ## `<kwc-slider>`
 
 ### Usage:
-`<kwc-slider></kwc-slider>`  
+```html
+<kwc-slider></kwc-slider>
+```
   
 or  
   
-`<kwc-slider min="0" max="150"></kwc-slider>`
+```html
+<kwc-slider min="0" max="150"></kwc-slider>
+```
 
 ### Properties:
 - CSS variables:
@@ -47,7 +53,15 @@ or
 ## `<kwc-dial>`
 
 ### Usage:
-`<kwc-dial></kwc-dial>`
+```html
+<kwc-dial></kwc-dial>
+```
+  
+or  
+  
+```html
+<kwc-dial prefix="$" suffix="°"></kwc-dial>
+```
 
 ### Properties:
 - CSS variables:
@@ -66,16 +80,26 @@ or
     - `--kwc-numpad-dial-center-text`
     - `--kwc-numpad-dial-center-text-hover`
 
+- HTML attributes:
+    - `prefix`
+        - optional
+    - `suffix`
+        - optional
+
 <br/>
 
 ## `<kwc-slider-numpad>`
 
 ### Usage:
-`<kwc-slider-numpad></kwc-slider-numpad>`  
+```html
+<kwc-slider-numpad></kwc-slider-numpad>
+```
   
 or  
   
-`<kwc-slider-numpad min="0" max="150"></kwc-slider-numpad>`
+```html
+<kwc-slider-numpad min="0" max="150"></kwc-slider-numpad>
+```
 
 ### Properties:
 - CSS variables:
@@ -104,7 +128,15 @@ or
 ## `<kwc-dial-numpad>`
 
 ### Usage:
-`<kwc-dial-numpad></kwc-dial-numpad>`
+```html
+<kwc-dial-numpad></kwc-dial-numpad>
+```
+  
+or  
+  
+```html
+<kwc-dial-numpad prefix="$" suffix="°"></kwc-dial-numpad>
+```
 
 ### Properties:
 - CSS variables:
@@ -126,16 +158,31 @@ or
     - `--kwc-numpad-dial-center-text`
     - `--kwc-numpad-dial-center-text-hover`
 
+- HTML attributes:
+    - `prefix`
+        - optional
+    - `suffix`
+        - optional
+
 <br/>
 
 ## `<kwc-dial-slider>`
 
 ### Usage:
-`<kwc-dial-slider></kwc-dial-slider>`  
+```html
+<kwc-dial-slider></kwc-dial-slider>
+```
   
 or  
   
-`<kwc-dial-slider min="0" max="150"></kwc-dial-slider>`
+```html
+<kwc-dial-slider
+    prefix="$"
+    suffix="°"
+    min="0"
+    max="150">
+</kwc-dial-slider>
+```
 
 ### Properties:
 - CSS variables:
@@ -166,3 +213,7 @@ or
     - `max`
         - optional
         - default is `100`
+    - `prefix`
+        - optional
+    - `suffix`
+        - optional
