@@ -44,10 +44,10 @@ or
 
 - HTML attributes:
     - `min`
-        - optional
+        - *optional*
         - default is `0`
     - `max`
-        - optional
+        - *optional*
         - default is `100`
 
 <br/>
@@ -84,9 +84,9 @@ or
 
 - HTML attributes:
     - `prefix`
-        - optional
+        - *optional*
     - `suffix`
-        - optional
+        - *optional*
 
 <br/>
 
@@ -121,10 +121,10 @@ or
 
 - HTML attributes:
     - `min`
-        - optional
+        - *optional*
         - default is `0`
     - `max`
-        - optional
+        - *optional*
         - default is `100`
 
 <br/>
@@ -166,9 +166,9 @@ or
 
 - HTML attributes:
     - `prefix`
-        - optional
+        - *optional*
     - `suffix`
-        - optional
+        - *optional*
 
 <br/>
 
@@ -214,12 +214,12 @@ or
 
 - HTML attributes:
     - `min`
-        - optional
+        - *optional*
         - default is `0`
     - `max`
-        - optional
+        - *optional*
         - default is `100`
     - `prefix`
-        - optional
+        - *optional*
     - `suffix`
-        - optional
+        - *optional*
