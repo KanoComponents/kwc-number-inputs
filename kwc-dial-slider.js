@@ -43,6 +43,18 @@ class KwcDialSlider extends PolymerElement {
                 notify: true,
                 observer: 'applyRange',
             },
+            prefix: {
+                type: String,
+                value: '',
+                notify: true,
+                observer: 'applyDialAttributes',
+            },
+            suffix: {
+                type: String,
+                value: '',
+                notify: true,
+                observer: 'applyDialAttributes',
+            },
         };
     }
 
@@ -95,6 +107,14 @@ class KwcDialSlider extends PolymerElement {
 
         this.shadowRoot.querySelector("kwc-slider").setAttribute("min", min);
         this.shadowRoot.querySelector("kwc-slider").setAttribute("max", max);
+    }
+
+    applyDialAttributes() {
+        let prefix = this.prefix;
+        let suffix = this.suffix;
+
+        this.shadowRoot.querySelector("kwc-dial").setAttribute("prefix", prefix);
+        this.shadowRoot.querySelector("kwc-dial").setAttribute("suffix", suffix);
     }
 }
 customElements.define(KwcDialSlider.is, KwcDialSlider);

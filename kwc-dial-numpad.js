@@ -34,6 +34,18 @@ class KwcDialNumpad extends PolymerElement {
                 notify: true,
                 observer: '_valueChanged',
             },
+            prefix: {
+                type: String,
+                value: '',
+                notify: true,
+                observer: 'applyDialAttributes',
+            },
+            suffix: {
+                type: String,
+                value: '',
+                notify: true,
+                observer: 'applyDialAttributes',
+            },
         };
     }
 
@@ -77,6 +89,14 @@ class KwcDialNumpad extends PolymerElement {
 
         dial.set("value", this.value);
         numpad.set("value", this.value);
+    }
+
+    applyDialAttributes() {
+        let prefix = this.prefix;
+        let suffix = this.suffix;
+
+        this.shadowRoot.querySelector("kwc-dial").setAttribute("prefix", prefix);
+        this.shadowRoot.querySelector("kwc-dial").setAttribute("suffix", suffix);
     }
 }
 customElements.define(KwcDialNumpad.is, KwcDialNumpad);
