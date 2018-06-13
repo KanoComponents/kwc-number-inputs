@@ -22,13 +22,16 @@ class KwcDial extends PolymerElement {
                     margin: 7px 0 35px;
                 }
                 .circular-slider .result{
-                    width: 60px;
+                    width: 74px;
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                     z-index: 1;
                     text-align: center;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 .circular-slider span,
                 .circular-slider sup {
