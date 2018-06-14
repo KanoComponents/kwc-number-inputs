@@ -1,6 +1,7 @@
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import '@polymer/polymer/lib/elements/custom-style.js';
+import { backspaceIcon } from './assets.js';
 
 class KwcNumpad extends PolymerElement {
     static get template() {
@@ -31,7 +32,7 @@ class KwcNumpad extends PolymerElement {
                     font-weight: 600;
                     transition: background-color 0.2s ease;
                 }
-                button[value='canc'] img {
+                button[value='backspace'] svg {
                     width: 20px;
                     pointer-events: none;
                 }
@@ -43,26 +44,26 @@ class KwcNumpad extends PolymerElement {
                     outline: none;
                 }
             </style>
-            <div class='row'>
-                <button value='1'>1</button>
-                <button value='2'>2</button>
-                <button value='3'>3</button>
+            <div class="row">
+                <button value="1">1</button>
+                <button value="2">2</button>
+                <button value="3">3</button>
             </div>
-            <div class='row'>
-                <button value='4'>4</button>
-                <button value='5'>5</button>
-                <button value='6'>6</button>
+            <div class="row">
+                <button value="4">4</button>
+                <button value="5">5</button>
+                <button value="6">6</button>
             </div>
-            <div class='row'>
-                <button value='7'>7</button>
-                <button value='8'>8</button>
-                <button value='9'>9</button>
+            <div class="row">
+                <button value="7">7</button>
+                <button value="8">8</button>
+                <button value="9">9</button>
             </div>
-            <div class='row'>
-                <button value='.'>.</button>
-                <button value='0'>0</button>
-                <button value='canc'>
-                    <img src='./assets/canc.svg'>
+            <div class="row">
+                <button value=".">.</button>
+                <button value="0">0</button>
+                <button value="backspace">
+                    ${backspaceIcon}
                 </button>
             </div>
         `;
@@ -115,47 +116,48 @@ class KwcNumpad extends PolymerElement {
     }
 
     updateResult(e) {
-        const digit = e.target.value;
+        const digit = e.target.getAttribute('value');
         let resultOverride = this.resultOverride;
+        let stringValue = this.stringValue;
 
         if (resultOverride) {
-            this.stringValue = '0';
+            stringValue = '0';
             this.set('resultOverride', false);
         }
 
         switch (digit) {
             case '.':
                 {
-                    if (this.stringValue.indexOf('.') === -1) {
-                        this.stringValue += '.';
+                    if (stringValue.indexOf('.') === -1) {
+                        stringValue += '.';
                     }
                     break;
                 }
-            case 'canc':
+            case 'backspace':
                 {
-                    if (this.stringValue.length <= 1) {
-                        this.stringValue = '0';
+                    if (stringValue.length <= 1) {
+                        stringValue = '0';
                     } else {
-                        this.stringValue = this.stringValue.slice(0, -1);
+                        stringValue = stringValue.slice(0, -1);
                     }
                     break;
                 }
             default:
                 {
-                    if (this.stringValue === '0') {
-                        this.stringValue = digit;
+                    if (stringValue === '0') {
+                        stringValue = digit;
                     } else {
-                        this.stringValue += digit;
+                        stringValue += digit;
                     }
                 }
         }
+        this.stringValue = stringValue;
     }
     _stringValueChanged() {
         this.set('value', parseFloat(this.stringValue, 10));
     }
     _valueChanged() {
         this.stringValue = typeof this.value === 'undefined' ? '0' : this.value.toString();
-        this.set("resultOverride", false);
     }
 }
 customElements.define(KwcNumpad.is, KwcNumpad);
