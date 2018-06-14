@@ -8,20 +8,16 @@ class KwcDial extends PolymerElement {
             <style>
                 :host {
                     display: inline-block;
-                    padding: 40px 25px 20px;
+                    padding: 32px;
                     background-color: var(--kwc-numpad-background, #292F35);
-                    z-index: 100000;
                     border-radius: 5px;
+                    position: relative;
                 }
                 :host::selection,
                 :host *::selection {
                     background-color: transparent;
                 }
-                .circular-slider {
-                    padding: 0 35px;
-                    margin: 7px 0 35px;
-                }
-                .circular-slider .result{
+                .result {
                     width: 74px;
                     position: absolute;
                     top: 50%;
@@ -33,8 +29,8 @@ class KwcDial extends PolymerElement {
                     overflow: hidden;
                     text-overflow: ellipsis;
                 }
-                .circular-slider span,
-                .circular-slider sup {
+                span,
+                sup {
                     display: inline-block;
                     text-align: center;
                     font-family: Bariol, Helvetica, Arial, sans-serif;
@@ -42,14 +38,14 @@ class KwcDial extends PolymerElement {
                     color: var(--kwc-numpad-dial-text-color, #FFF);
                     transition: all 0.2s ease;
                 }
-                .circular-slider span:hover,
-                .circular-slider sup:hover {
+                span:hover,
+                sup:hover {
                     color: var(--kwc-numpad-dial-text-color-hover, #FFF);
                 }
-                .circular-slider span {
+                span {
                     font-size: 25px;
                 }
-                .circular-slider sup {
+                sup {
                     font-size: 20px;
                     vertical-align: top;
                     position: relative;
@@ -83,33 +79,39 @@ class KwcDial extends PolymerElement {
                 .circle:hover:after {
                     background-color: var(--kwc-numpad-dial-background-hover, #1A1A1A);
                 }
-                #circularSlider { 
-                    position: relative; 
+                #circular-slider { 
+                    position: relative;
+                    top: 0;
+                    left: 0;
                     height: 12px;
                     width: 12px;
                     border: 1.9px solid var(--kwc-numpad-dial-border-color, #FFF);
                     background: var(--kwc-numpad-dial-color, #FF6B00); 
-                    left: 40px;
-                    top: -9px;
                     border-radius: 100%;
                     cursor: pointer;
-                    z-index: 1;
                     transition: border-color 0.2s ease,
                                 background 0.2s ease;
+                    z-index: 1;
                 }
-                #circularSlider:hover {
+                #circular-slider:hover {
                     border-color: var(--kwc-numpad-dial-border-color-hover, #FFF);
                     background: var(--kwc-numpad-dial-color-hover, #FF6B00); 
                 }
-                .circle-degrees {
-                    width: 175px;
-                    height: 165px;
+                .degrees-container {
+                    width: 100%;
+                    height: 100%;
                     position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
+                    top: 0px;
+                    left: 0px;
+                    padding: 8px;
+                    box-sizing: border-box;
+                    display: flex;
                 }
-                .circle-degrees p {
+                .degrees {
+                    flex: 1;
+                    position: relative;
+                }
+                .degrees p {
                     display: inline-block;
                     margin: 0;
                     position: absolute;
@@ -121,44 +123,44 @@ class KwcDial extends PolymerElement {
                     text-align: center;
                     transition: all 0.2s ease;
                 }
-                .circle-degrees p:hover {
+                .degrees p:hover {
                     color: var(--kwc-numpad-dial-round-text-hover, #FFF);
                 }
-                .circle-degrees p#zero {
+                .degrees p#zero {
                     top: 0;
                     left: 50%;
                     transform: translateX(-50%);
                 }
-                .circle-degrees p#quarter {
+                .degrees p#quarter {
                     top: 50%;
                     right: 0;
                     transform: translateY(-50%);
                 }
-                .circle-degrees p#half {
+                .degrees p#half {
                     bottom: 0;
                     left: 50%;
                     transform: translateX(-50%);
                 }
-                .circle-degrees p#three-quarters {
+                .degrees p#three-quarters {
                     top: 50%;
                     left: 0;
                     transform: translateY(-50%);
                 }
             </style>
-            <div class='circular-slider'>
-                <div class='circle'>
-                    <div id='circularSlider'></div>
-                    <div class='result'>
-                        <span>[[prefix]]</span>
-                        <span>[[value]]</span>
-                        <sup>[[suffix]]</sup>
-                    </div>
-                    <div class='circle-degrees'>
-                        <p id='zero'>0</p>
-                        <p id='quarter'>90</p>
-                        <p id='half'>180</p>
-                        <p id='three-quarters'>270</p>
-                    </div>
+            <div class='circle' id="container">
+                <div class='result'>
+                    <span>[[prefix]]</span>
+                    <span>[[value]]</span>
+                    <sup>[[suffix]]</sup>
+                </div>
+                <div id='circular-slider'></div>
+            </div>
+            <div class='degrees-container'>
+                <div class="degrees">
+                    <p id='zero'>0</p>
+                    <p id='quarter'>90</p>
+                    <p id='half'>180</p>
+                    <p id='three-quarters'>270</p>
                 </div>
             </div>
         `;
@@ -184,6 +186,16 @@ class KwcDial extends PolymerElement {
         };
     }
 
+    constructor() {
+        super();
+        this.onMouseDown = this.onMouseDown.bind(this);
+        this.onMouseUp = this.onMouseUp.bind(this);
+        this.onMouseMove = this.onMouseMove.bind(this);
+        this.onTouchStart = this.onTouchStart.bind(this);
+        this.onTouchEnd = this.onTouchEnd.bind(this);
+        this.onTouchMove = this.onTouchMove.bind(this);
+    }
+
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
@@ -195,132 +207,104 @@ class KwcDial extends PolymerElement {
     }
 
     attachListeners() {
-        let container = this.shadowRoot.querySelector('.circular-slider .circle');
-        let slider = this.shadowRoot.querySelector('.circular-slider #circularSlider');
-        let sliderW2 = slider.getBoundingClientRect().width / 2;
-        let sliderH2 = slider.getBoundingClientRect().height / 2;
-        let radius = 49.5;
-        let deg = 0;
-        let elP = container.getBoundingClientRect();
-        let elPos = {
-            x: elP.left + document.body.scrollLeft,
-            y: elP.top + document.body.scrollTop,
-        };
-        let X = 0,
-            Y = 0;
-        let mouseDown = false;
+        const container = this;
 
-        container.addEventListener('touchstart', () => {
-            mouseDown = true;
-        });
+        container.addEventListener('touchstart', this.onTouchStart);
+        window.addEventListener('touchend', this.onTouchEnd);
+        container.addEventListener('mousedown', this.onMouseDown);
+        window.addEventListener('mouseup', this.onMouseUp);
+        window.addEventListener('mousemove', this.onMouseMove);
+        window.addEventListener('touchmove', this.onTouchMove);
+    }
+    computeBoundingBoxes() {
+        const container = this;
+        const slider = this.$['circular-slider'];
+        this.sliderRect = slider.getBoundingClientRect();
+        this.containerRect = container.getBoundingClientRect();
+    }
+    onMouseDown(e) {
+        this.down = true;
+        this.computeBoundingBoxes();
+        this.updateSlider(e.clientX, e.clientY);
+    }
+    onMouseUp(e) {
+        this.down = false;
+    }
+    onMouseMove(e) {
+        this.updateSlider(e.clientX, e.clientY);
+    }
+    onTouchStart(e) {
+        if (e.touches.length > 1) {
+            return;
+        }
+        this.down = true;
+        this.computeBoundingBoxes();
+        this.updateSlider(e.touches[0].clientX, e.touches[0].clientY);
 
-        container.addEventListener('touchend', () => {
-            mouseDown = false;
-        });
-
-        container.addEventListener('mousedown', () => {
-            mouseDown = true;
-        });
-
-        container.addEventListener('mouseup', () => {
-            mouseDown = false;
-        });
-
-        container.addEventListener('mousemove', (e) => {
-            this.updateSlider(slider, sliderW2, sliderH2, radius, deg, elPos, X, Y, mouseDown, e);
-        });
-
-        container.addEventListener('touchmove', (e) => {
-            this.updateSlider(slider, sliderW2, sliderH2, radius, deg, elPos, X, Y, mouseDown, e);
-        });
+    }
+    onTouchEnd(e) {
+        if (e.touches.length > 1) {
+            return;
+        }
+        this.down = false;
+    }
+    onTouchMove(e) {
+        if (e.touches.length > 1) {
+            return;
+        }
+        this.updateSlider(e.touches[0].clientX, e.touches[0].clientY);
     }
     
     detachListeners() {
-        let container = this.shadowRoot.querySelector('.circular-slider .circle');
-        let slider = this.shadowRoot.querySelector('.circular-slider #circularSlider');
-        let sliderW2 = slider.getBoundingClientRect().width / 2;
-        let sliderH2 = slider.getBoundingClientRect().height / 2;
-        let radius = 49.5;
-        let deg = 0;
-        let elP = container.getBoundingClientRect();
-        let elPos = {
-            x: elP.left + document.body.scrollLeft,
-            y: elP.top + document.body.scrollTop,
-        };
-        let X = 0,
-            Y = 0;
-        let mouseDown = false;
+        const container = this;
 
-        container.removeEventListener('touchstart', () => {
-            mouseDown = true;
-        });
-
-        container.removeEventListener('touchend', () => {
-            mouseDown = false;
-        });
-
-        container.removeEventListener('mousedown', () => {
-            mouseDown = true;
-        });
-
-        container.removeEventListener('mouseup', () => {
-            mouseDown = false;
-        });
-
-        container.removeEventListener('mousemove', (e) => {
-            this.updateSlider(slider, sliderW2, sliderH2, radius, deg, elPos, X, Y, mouseDown, e);
-        });
-
-        container.removeEventListener('touchmove', (e) => {
-            this.updateSlider(slider, sliderW2, sliderH2, radius, deg, elPos, X, Y, mouseDown, e);
-        });
+        container.removeEventListener('touchstart', this.onTouchStart);
+        window.removeEventListener('touchend', this.onTouchEnd);
+        container.removeEventListener('mousedown', this.onMouseDown);
+        window.removeEventListener('mouseup', this.onMouseUp);
+        window.removeEventListener('mousemove', this.onMouseMove);
+        window.removeEventListener('touchmove', this.onTouchMove);
     }
 
-    updateSlider(slider, sliderW2, sliderH2, radius, deg, elPos, X, Y, mouseDown, e) {
-        if (mouseDown) {
-            let mPos = {
-                x: e.clientX - elPos.x,
-                y: e.clientY - elPos.y,
-            };
+    updateSlider(x, y) {
+        if (this.down) {
+            const dx = x - (this.containerRect.left + (this.containerRect.width / 2));
+            const dy = y - (this.containerRect.top + (this.containerRect.height / 2));
             
-            if(typeof e.touches !== 'undefined') {
-                mPos = {
-                    x: e.touches[0].clientX - elPos.x,
-                    y: e.touches[0].clientY - elPos.y,
-                };
-            }
-
-            let atan = Math.atan2(mPos.x - radius, mPos.y - radius);
-
-            deg = -atan / (Math.PI / 180) + 180;
-
-            X = Math.round(radius * Math.sin(deg * Math.PI / 180));
-            Y = Math.round(radius * -Math.cos(deg * Math.PI / 180));
-
-            slider.style.top = Y + radius - sliderH2 + 'px';
-            slider.style.left = X + radius - sliderW2 + 'px';
-
-            slider.style.transform = 'rotate(' + deg + 'deg)';
+            let atan = Math.atan2(dx, dy);
+            let deg = -atan / (Math.PI / 180) + 180;
 
             this.set('value', Math.ceil(deg));
         }
     }
 
+    _getSliderRect() {
+        if (!this.sliderRect) {
+            this.sliderRect = this.$['circular-slider'].getBoundingClientRect();
+        }
+        return this.sliderRect;
+    }
+
+    _getContainerRect() {
+        if (!this.containerRect) {
+            this.containerRect = this.getBoundingClientRect();
+        }
+        return this.containerRect;
+    }
+
     _valueChanged() {
-        const deg = this.value;
+        const radius = 49.5;
+        const slider = this.$['circular-slider'];
+        const sliderRect = this._getSliderRect();
+        const sliderH2 = sliderRect.height / 2;
+        const sliderW2 = sliderRect.width / 2;
+        let X = Math.round(radius * Math.sin(this.value * Math.PI / 180));
+        let Y = Math.round(radius * -Math.cos(this.value * Math.PI / 180));
 
-        let slider = this.shadowRoot.querySelector('.circular-slider #circularSlider');
-        let sliderW2 = slider.getBoundingClientRect().width / 2;
-        let sliderH2 = slider.getBoundingClientRect().height / 2;
-        let radius = 49.5;
+        X = X + radius - sliderW2;
+        Y = Y + radius - sliderH2;
 
-        const X = Math.round(radius * Math.sin(deg * Math.PI / 180));
-        const Y = Math.round(radius * -Math.cos(deg * Math.PI / 180));
-
-        slider.style.top = Y + radius - sliderH2 + 'px';
-        slider.style.left = X + radius - sliderW2 + 'px';
-
-        slider.style.transform = 'rotate(' + deg + 'deg)';
+        slider.style.transform = `translate(${X}px, ${Y}px) rotate(${this.value}deg)`;
     }
 }
 customElements.define(KwcDial.is, KwcDial);
