@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "repository": "git@github.com:KanoComponents/kwc-number-inputs.git",
-  "author": "Denis Dani <danidenis1995@gmail.com>",
+  "author": "Kano Computing",
   "license": "MIT",
   "dependencies": {
     "@polymer/polymer": "^3.0.2"
