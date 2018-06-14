@@ -14,11 +14,13 @@ class KwcDialNumpad extends PolymerElement {
                     border-radius: 5px;
                 }
                 kwc-dial {
-                    padding: 40px 17px 0;
+                    display: flex;
+                    flex-direction: column;
                 }
                 kwc-numpad {
                     display: block;
                     text-align: center;
+                    padding-top: 8px;
                 }
             </style>
             <kwc-dial></kwc-dial>
