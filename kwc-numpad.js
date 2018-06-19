@@ -16,7 +16,9 @@ class KwcNumpad extends PolymerElement {
                 }
                 :host::selection,
                 :host *::selection {
-                    background-color: transparent;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    user-select: none;
                 }
                 button {
                     width: var(--kwc-numpad-button-width, 56px);
