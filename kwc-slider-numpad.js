@@ -8,7 +8,7 @@ class KwcSliderNumpad extends PolymerElement {
         return html`
             <style>
                 :host {
-                    display: inline-block;
+                    display: inline-table;
                     background-color: var(--kwc-numpad-background, #292F35);
                     z-index: 100000;
                     border-radius: 5px;
