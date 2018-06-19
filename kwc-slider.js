@@ -15,7 +15,9 @@ class KwcSlider extends PolymerElement {
                 }
                 :host::selection,
                 :host *::selection {
-                    background-color: transparent;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    user-select: none;
                 }
                 .slider {
                     -webkit-appearance: none;

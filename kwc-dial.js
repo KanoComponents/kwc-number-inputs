@@ -15,7 +15,9 @@ class KwcDial extends PolymerElement {
                 }
                 :host::selection,
                 :host *::selection {
-                    background-color: transparent;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    user-select: none;
                 }
                 .result {
                     width: 74px;
