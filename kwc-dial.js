@@ -7,7 +7,7 @@ class KwcDial extends PolymerElement {
         return html`
             <style>
                 :host {
-                    display: inline-block;
+                    display: inline-table;
                     padding: 43px;
                     background-color: var(--kwc-numpad-background, #292F35);
                     border-radius: 5px;

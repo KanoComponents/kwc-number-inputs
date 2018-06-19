@@ -8,7 +8,7 @@ class KwcNumpad extends PolymerElement {
         return html`
             <style>
                 :host {
-                    display: inline-block;
+                    display: inline-table;
                     background-color: var(--kwc-numpad-background, #292F35);
                     z-index: 100000;
                     border-radius: 5px;
@@ -17,6 +17,9 @@ class KwcNumpad extends PolymerElement {
                 :host::selection,
                 :host *::selection {
                     background-color: transparent;
+                }
+                .row {
+                    white-space: nowrap;
                 }
                 button {
                     width: var(--kwc-numpad-button-width, 56px);
@@ -84,6 +87,7 @@ class KwcNumpad extends PolymerElement {
             },
             stringValue: {
                 type: String,
+                notify: true,
                 value: '0',
                 observer: '_stringValueChanged',
             },
