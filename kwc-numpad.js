@@ -41,6 +41,16 @@ class KwcNumpad extends PolymerElement {
                     width: 20px;
                     pointer-events: none;
                 }
+                button[value='plus-minus'] {
+                    display: none;
+                }
+                :host([negative]) button[value='plus-minus'] {
+                    display: initial;
+                }
+                :host([negative]) button[value='backspace'] {
+                    display: block;
+                    width: 100%;
+                }
                 button:hover {
                     background-color: var(--kwc-numpad-button-background-hover, #FF6B00);
                     color: var(--kwc-numpad-button-color-hover, #FFF);
@@ -67,6 +77,7 @@ class KwcNumpad extends PolymerElement {
             <div class="row">
                 <button value=".">.</button>
                 <button value="0">0</button>
+                <button value="plus-minus">+/-</button>
                 <button value="backspace">
                     ${backspaceIcon}
                 </button>
