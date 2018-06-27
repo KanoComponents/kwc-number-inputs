@@ -150,6 +150,13 @@ class KwcNumpad extends PolymerElement {
                     }
                     break;
                 }
+            case 'plus-minus':
+                {
+                    if (stringValue != 0) {
+                        stringValue *= -1;
+                    }
+                    break;
+                }
             case 'backspace':
                 {
                     if (stringValue.length <= 1) {
