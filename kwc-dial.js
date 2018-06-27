@@ -95,9 +95,10 @@ class KwcDial extends PolymerElement {
                                 background 0.2s ease;
                     z-index: 1;
                 }
-                #circular-slider:hover {
+                #circular-slider:hover,
+                #circular-slider:active {
                     border-color: var(--kwc-numpad-dial-border-color-hover, #FFF);
-                    background: var(--kwc-numpad-dial-color-hover, #FF6B00); 
+                    background: var(--kwc-numpad-dial-color-hover, #D95000); 
                 }
                 .degrees-container {
                     width: 100%;
