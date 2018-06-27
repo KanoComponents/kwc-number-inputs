@@ -35,8 +35,9 @@ class KwcNumpad extends PolymerElement {
                     font-family: Bariol, Helvetica, Arial, sans-serif;
                     font-size: 18px;
                     font-weight: 600;
-                    transition: background-color 0.2s ease;
                     touch-action: manipulation;
+                    transition: background-color .5s ease;
+                    -webkit-tap-highlight-color: rgba(0,0,0,0); 
                 }
                 button[value='backspace'] svg {
                     width: 20px;
@@ -52,7 +53,13 @@ class KwcNumpad extends PolymerElement {
                     display: block;
                     width: 100%;
                 }
-                button:hover {
+                @media (hover: hover) {
+                   button:hover {
+                      background-color: #95979a;
+                   }
+                }
+                button:active {
+                    transition: none;
                     background-color: var(--kwc-numpad-button-background-hover, #FF6B00);
                     color: var(--kwc-numpad-button-color-hover, #FFF);
                 }
