@@ -44,10 +44,10 @@ class KwcNumpad extends PolymerElement {
                 button[value='plus-minus'] {
                     display: none;
                 }
-                :host([negative]) button[value='plus-minus'] {
+                button.negative[value='plus-minus'] {
                     display: initial;
                 }
-                :host([negative]) button[value='backspace'] {
+                button.negative[value='backspace'] {
                     display: block;
                     width: 100%;
                 }
@@ -77,8 +77,8 @@ class KwcNumpad extends PolymerElement {
             <div class="row">
                 <button value=".">.</button>
                 <button value="0">0</button>
-                <button value="plus-minus">+/-</button>
-                <button value="backspace">
+                <button class$="[[isNegative()]]" value="plus-minus">+/-</button>
+                <button class$="[[isNegative()]]" value="backspace">
                     ${backspaceIcon}
                 </button>
             </div>
@@ -104,6 +104,10 @@ class KwcNumpad extends PolymerElement {
                 value: '0',
                 observer: '_stringValueChanged',
             },
+            negative: {
+                type: Boolean,
+                value: true,
+            }
         };
     }
     constructor () {
@@ -163,6 +167,9 @@ class KwcNumpad extends PolymerElement {
                         stringValue = '0';
                     } else {
                         stringValue = stringValue.slice(0, -1);
+                        if (stringValue === '-') {
+                            stringValue = '0';
+                        }
                     }
                     break;
                 }
@@ -176,6 +183,9 @@ class KwcNumpad extends PolymerElement {
                 }
         }
         this.stringValue = stringValue;
+    }
+    isNegative() {
+        return this.negative ? "negative" : "";
     }
     _stringValueChanged() {
         this.set('value', parseFloat(this.stringValue, 10));

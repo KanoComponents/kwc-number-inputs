@@ -15,6 +15,12 @@
 <kwc-numpad></kwc-numpad>
 ```
 
+or
+
+```html
+<kwc-numpad negative="false"></kwc-numpad>
+```
+
 ### Properties:
 - CSS variables:
     - `--kwc-numpad-background`
