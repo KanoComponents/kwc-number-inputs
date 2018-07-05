@@ -276,7 +276,7 @@ class KwcDial extends PolymerElement {
             let atan = Math.atan2(dx, dy);
             let deg = -atan / (Math.PI / 180) + 180;
 
-            this.set('value', Math.ceil(deg));
+            this.set('value', Math.floor(deg));
         }
     }
 
