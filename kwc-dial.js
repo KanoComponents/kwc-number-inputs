@@ -101,9 +101,6 @@ class KwcDial extends PolymerElement {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    /* height: 1px;
-                    width: 1px;
-                    background: pink; */
                     transform: translate(-50%, -50%);
                     box-sizing: border-box;
                     height: 16px;
@@ -323,9 +320,6 @@ class KwcDial extends PolymerElement {
         const sliderW2 = sliderRect.width / 2;
         let x = Math.round(radius * Math.sin(this.value * Math.PI / 180));
         let y = Math.round(radius * -Math.cos(this.value * Math.PI / 180));
-        console.log('x', x)
-        console.log('y', y)
-        console.log('radius', radius)
 
         x += radius - sliderW2;
         y += radius - sliderH2;
