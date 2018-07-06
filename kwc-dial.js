@@ -8,7 +8,8 @@ class KwcDial extends PolymerElement {
             <style>
                 :host {
                     display: inline-table;
-                    padding: 43px;
+                    height: 170px;
+                    width: 170px;
                     background-color: var(--kwc-numpad-background, #292F35);
                     border-radius: 5px;
                     position: relative;
@@ -53,40 +54,57 @@ class KwcDial extends PolymerElement {
                     position: relative;
                     right: 2.5px;
                 }
-                .circle { 
-                    width: 99.5px; 
-                    height: 98px;
-                    border: 5px solid var(--kwc-numpad-dial-background, #1A1A1A); 
-                    border-radius:100%;
-                    margin: 0 auto;
-                    position: relative;
-                    transition: all 0.2s ease;
-                }
-                .circle:hover { 
-                    border-color: var(--kwc-numpad-dial-background-hover, #1A1A1A); 
-                }
+                .circle,
+                .circle:before,
                 .circle:after {
                     content: '';
                     display: block;
-                    width: 86px;
-                    height: 86px;
                     border-radius: 100%;
-                    background-color: var(--kwc-numpad-dial-background, #1A1A1A);
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                     transition: all 0.2s ease;
+                    box-sizing: border-box;
+                }
+                .circle { 
+                    width: 90px; 
+                    height: 90px;
+                    border-radius:100%;
+                    margin: 0 auto;
+                }
+                .circle:hover { 
+                    border-color: var(--kwc-numpad-dial-background-hover, #1A1A1A); 
+                }
+                .circle:before {
+                    width: calc(100% + 5px);
+                    height: calc(100% + 5px);
+                    border: 5px solid var(--kwc-numpad-dial-background, #1A1A1A);
+                }
+                .circle:after {
+                    width: 80%;
+                    height: 80%;
+                    background-color: var(--kwc-numpad-dial-background, #1A1A1A);
                 }
                 .circle:hover:after {
                     background-color: var(--kwc-numpad-dial-background-hover, #1A1A1A);
                 }
                 #circular-slider { 
-                    position: relative;
+                    position: absolute;
                     top: 0;
                     left: 0;
-                    height: 12px;
-                    width: 12px;
+                    cursor: pointer;
+                    z-index: 1;
+                }
+                #circular-slider:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translate(-50%, -50%);
+                    box-sizing: border-box;
+                    height: 16px;
+                    width: 16px;
                     border: 1.9px solid var(--kwc-numpad-dial-border-color, #FFF);
                     background: var(--kwc-numpad-dial-color, #FF6B00); 
                     border-radius: 100%;
@@ -295,18 +313,18 @@ class KwcDial extends PolymerElement {
     }
 
     _valueChanged() {
-        const radius = 49.5;
+        const radius = 45;
         const slider = this.$['circular-slider'];
         const sliderRect = this._getSliderRect();
         const sliderH2 = sliderRect.height / 2;
         const sliderW2 = sliderRect.width / 2;
-        let X = Math.round(radius * Math.sin(this.value * Math.PI / 180));
-        let Y = Math.round(radius * -Math.cos(this.value * Math.PI / 180));
+        let x = Math.round(radius * Math.sin(this.value * Math.PI / 180));
+        let y = Math.round(radius * -Math.cos(this.value * Math.PI / 180));
 
-        X = X + radius - sliderW2;
-        Y = Y + radius - sliderH2;
+        x += radius - sliderW2;
+        y += radius - sliderH2;
 
-        slider.style.transform = `translate(${X}px, ${Y}px) rotate(${this.value}deg)`;
+        slider.style.transform = `translate(${x}px, ${y}px) rotate(${this.value}deg)`;
     }
 }
 customElements.define(KwcDial.is, KwcDial);
