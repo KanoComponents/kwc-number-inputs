@@ -1,8 +1,9 @@
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import '@polymer/polymer/lib/elements/custom-style.js';
+import { KwcNumberInputCommon } from './kwc-number-input-common.js';
 
-class KwcDial extends PolymerElement {
+class KwcDial extends KwcNumberInputCommon(PolymerElement) {
     static get template() {
         return html`
             <style>
@@ -219,6 +220,7 @@ class KwcDial extends PolymerElement {
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
+        this.checkPagePosition();
     }
 
     disconnectedCallback() {
