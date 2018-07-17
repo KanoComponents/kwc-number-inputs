@@ -2,8 +2,9 @@ import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import '@polymer/polymer/lib/elements/custom-style.js';
 import { backspaceIcon } from './assets.js';
+import { KwcNumberInputCommon } from './kwc-number-input-common.js';
 
-class KwcNumpad extends PolymerElement {
+class KwcNumpad extends KwcNumberInputCommon(PolymerElement) {
     static get template() {
         return html`
             <style>
@@ -119,6 +120,7 @@ class KwcNumpad extends PolymerElement {
         super.connectedCallback();
         this.updateResult = this.updateResult.bind(this);
         this.attachListeners();
+        this.checkPagePosition();
     }
     disconnectedCallback() {
         super.disconnectedCallback();

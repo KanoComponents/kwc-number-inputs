@@ -242,3 +242,11 @@ or
         - *optional*
     - `suffix`
         - *optional*
+
+
+## KwcNumberInputCommon Mixin
+
+Add common functionality for the components here such as positioning checks. Add to your component like so:
+```
+class NewKwcNumberInput extends KwcNumberInputCommon(PolymerElement) {...}
+```

@@ -2,8 +2,9 @@ import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import './kwc-slider.js';
 import './kwc-numpad.js';
+import { KwcNumberInputCommon } from './kwc-number-input-common.js';
 
-class KwcSliderNumpad extends PolymerElement {
+class KwcSliderNumpad extends KwcNumberInputCommon(PolymerElement) {
     static get template() {
         return html`
             <style>
@@ -51,6 +52,7 @@ class KwcSliderNumpad extends PolymerElement {
         super.connectedCallback();
         this.attachListeners();
         this.applyRange();
+        this.checkPagePosition();
     }
 
     disconnectedCallback() {
