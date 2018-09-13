@@ -36,6 +36,7 @@ class KwcNumpad extends PolymerElement {
                     font-size: 18px;
                     font-weight: 600;
                     transition: background-color 0.2s ease;
+                    touch-action: manipulation;
                 }
                 button[value='backspace'] svg {
                     width: 20px;
