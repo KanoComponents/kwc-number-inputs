@@ -31,6 +31,10 @@ class KwcDial extends PolymerElement {
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none; 
                 }
                 span,
                 sup {
@@ -72,6 +76,7 @@ class KwcDial extends PolymerElement {
                     height: 90px;
                     border-radius:100%;
                     margin: 0 auto;
+
                 }
                 .circle:hover { 
                     border-color: var(--kwc-numpad-dial-background-hover, #1A1A1A); 
@@ -126,6 +131,10 @@ class KwcDial extends PolymerElement {
                     padding: 11px;
                     box-sizing: border-box;
                     display: flex;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none; 
                 }
                 .degrees {
                     flex: 1;
