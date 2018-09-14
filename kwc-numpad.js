@@ -129,11 +129,13 @@ class KwcNumpad extends PolymerElement {
     attachListeners() {
         this.shadowRoot.querySelectorAll('button').forEach((element) => {
             element.addEventListener('click', this.updateResult);
+            element.addEventListener('touchstart', this.updateResult);
         });
     }
     detachListeners() {
         this.shadowRoot.querySelectorAll('button').forEach((element) => {
             element.removeEventListener('click', this.updateResult);
+            element.removeEventListener('touchstart', this.updateResult);
         });
     }
 
@@ -184,6 +186,7 @@ class KwcNumpad extends PolymerElement {
                 }
         }
         this.stringValue = stringValue;
+        e.preventDefault();
     }
     isNegative() {
         return this.negative ? "negative" : "";
