@@ -162,7 +162,7 @@ class KwcNumpad extends PolymerElement {
                     if (stringValue != 0) {
                         stringValue *= -1;
                     } else {
-                        this.negate = !this.negate
+                        this.negate = !this.negate;
                     }
                     break;
                 }
@@ -185,8 +185,8 @@ class KwcNumpad extends PolymerElement {
                     } else {
                         stringValue += digit;
                         if (this.negate) {
-                            stringValue *= -1
-                            delete(this.negate)
+                            stringValue *= -1;
+                            delete(this.negate);
                         }
                     }
                 }
