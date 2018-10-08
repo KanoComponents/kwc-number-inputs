@@ -184,12 +184,14 @@ class KwcNumpad extends PolymerElement {
                         stringValue = digit;
                     } else {
                         stringValue += digit;
-                        if (this.negate) {
-                            stringValue *= -1;
-                            delete(this.negate);
-                        }
                     }
                 }
+        }
+        if (stringValue !== '0') {
+            if (this.negate) {
+                stringValue *= -1;
+                delete(this.negate);
+            }
         }
         this.stringValue = stringValue;
         e.preventDefault();
