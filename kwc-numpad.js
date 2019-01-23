@@ -186,7 +186,7 @@ class KwcNumpad extends PolymerElement {
         if (stringValue !== '0') {
             if (this.negate) {
                 stringValue *= -1;
-                delete (this.negate);
+                delete this.negate;
             }
         }
         this.stringValue = stringValue;
