@@ -6,6 +6,17 @@
 
 ***Click here and go to [docs](/docs)***
 
+### Tests / Demo
+
+To run test:
+```
+yarn serve-test
+```
+
+To run demo:
+```
+yarn serve
+```
 <br/>
 
 ## `<kwc-numpad>`
@@ -18,7 +29,7 @@
 or  
   
 ```html
-<kwc-numpad negative="false"></kwc-numpad>
+<kwc-numpad limited></kwc-numpad>
 ```
 
 ### Properties:
@@ -32,9 +43,9 @@ or
     - `--kwc-numpad-button-height`
 
 - HTML attributes:
-    - `negative`
+    - `limited`
         - *optional*
-        - default is `true`
+        - default is `false`
 
 <br/>
 

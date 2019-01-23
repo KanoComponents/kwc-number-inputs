@@ -1,3 +1,8 @@
 assets
 demo
 docs
+test-results.xml
+yarn.lock
+eslint.xml
+eslintrc.js
+**/*test.js
