@@ -63,43 +63,42 @@ class KwcDialNumpad extends PolymerElement {
     }
 
     attachListeners() {
-        this.shadowRoot.querySelector("kwc-dial").addEventListener("value-changed", (e) => {
+        this.shadowRoot.querySelector('kwc-dial').addEventListener('value-changed', (e) => {
             this.updateValue(e);
         });
 
-        this.shadowRoot.querySelector("kwc-numpad").addEventListener("value-changed", (e) => {
+        this.shadowRoot.querySelector('kwc-numpad').addEventListener('value-changed', (e) => {
             this.updateValue(e);
         });
     }
-    
     detachListeners() {
-        this.shadowRoot.querySelector("kwc-dial").removeEventListener("value-changed", (e) => {
+        this.shadowRoot.querySelector('kwc-dial').removeEventListener('value-changed', (e) => {
             this.updateValue(e);
         });
 
-        this.shadowRoot.querySelector("kwc-numpad").removeEventListener("value-changed", (e) => {
+        this.shadowRoot.querySelector('kwc-numpad').removeEventListener('value-changed', (e) => {
             this.updateValue(e);
         });
     }
 
     updateValue(e) {
-        this.set("value", e.detail.value);
+        this.set('value', e.detail.value);
     }
 
     _valueChanged() {
-        let dial = this.shadowRoot.querySelector('kwc-dial');
-        let numpad = this.shadowRoot.querySelector('kwc-numpad');
+        const dial = this.shadowRoot.querySelector('kwc-dial');
+        const numpad = this.shadowRoot.querySelector('kwc-numpad');
 
-        dial.set("value", this.value);
-        numpad.set("value", this.value);
+        dial.set('value', this.value);
+        numpad.set('value', this.value);
     }
 
     applyDialAttributes() {
-        let prefix = this.prefix;
-        let suffix = this.suffix;
+        const { prefix } = this;
+        const { suffix } = this;
 
-        this.shadowRoot.querySelector("kwc-dial").setAttribute("prefix", prefix);
-        this.shadowRoot.querySelector("kwc-dial").setAttribute("suffix", suffix);
+        this.shadowRoot.querySelector('kwc-dial').setAttribute('prefix', prefix);
+        this.shadowRoot.querySelector('kwc-dial').setAttribute('suffix', suffix);
     }
 }
 customElements.define(KwcDialNumpad.is, KwcDialNumpad);

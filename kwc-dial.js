@@ -256,7 +256,7 @@ class KwcDial extends PolymerElement {
         this.computeBoundingBoxes();
         this.updateSlider(e.clientX, e.clientY);
     }
-    onMouseUp(e) {
+    onMouseUp() {
         this.down = false;
     }
     onMouseMove(e) {
@@ -269,7 +269,6 @@ class KwcDial extends PolymerElement {
         this.down = true;
         this.computeBoundingBoxes();
         this.updateSlider(e.touches[0].clientX, e.touches[0].clientY);
-
     }
     onTouchEnd(e) {
         if (e.touches.length > 1) {
@@ -283,7 +282,6 @@ class KwcDial extends PolymerElement {
         }
         this.updateSlider(e.touches[0].clientX, e.touches[0].clientY);
     }
-    
     detachListeners() {
         const container = this;
 
@@ -299,9 +297,8 @@ class KwcDial extends PolymerElement {
         if (this.down) {
             const dx = x - (this.containerRect.left + (this.containerRect.width / 2));
             const dy = y - (this.containerRect.top + (this.containerRect.height / 2));
-            
-            let atan = Math.atan2(dx, dy);
-            let deg = -atan / (Math.PI / 180) + 180;
+            const atan = Math.atan2(dx, dy);
+            const deg = -atan / ((Math.PI / 180) + 180);
 
             this.set('value', Math.floor(deg));
         }
@@ -327,8 +324,8 @@ class KwcDial extends PolymerElement {
         const sliderRect = this._getSliderRect();
         const sliderH2 = sliderRect.height / 2;
         const sliderW2 = sliderRect.width / 2;
-        let x = Math.round(radius * Math.sin(this.value * Math.PI / 180));
-        let y = Math.round(radius * -Math.cos(this.value * Math.PI / 180));
+        let x = Math.round(radius * Math.sin((this.value * Math.PI) / 180));
+        let y = Math.round(radius * -Math.cos((this.value * Math.PI) / 180));
 
         x += radius - sliderW2;
         y += radius - sliderH2;

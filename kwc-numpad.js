@@ -108,10 +108,10 @@ class KwcNumpad extends PolymerElement {
             limited: {
                 type: Boolean,
                 value: false,
-            }
+            },
         };
     }
-    constructor () {
+    constructor() {
         super();
         this.stringValue = '0';
     }
@@ -141,8 +141,8 @@ class KwcNumpad extends PolymerElement {
 
     updateResult(e) {
         const digit = e.target.getAttribute('value');
-        let resultOverride = this.resultOverride;
-        let stringValue = this.stringValue;
+        const { resultOverride } = this;
+        let { stringValue } = this;
 
         if (resultOverride) {
             stringValue = '0';
@@ -150,54 +150,50 @@ class KwcNumpad extends PolymerElement {
         }
 
         switch (digit) {
-            case '.':
-                {
-                    if (stringValue.indexOf('.') === -1) {
-                        stringValue += '.';
-                    }
-                    break;
+        case '.': {
+            if (stringValue.indexOf('.') === -1) {
+                stringValue += '.';
+            }
+            break;
+        }
+        case 'plus-minus': {
+            if (stringValue !== 0 && stringValue !== '0') {
+                stringValue *= -1;
+            } else {
+                this.negate = !this.negate;
+            }
+            break;
+        }
+        case 'backspace': {
+            if (stringValue.length <= 1) {
+                stringValue = '0';
+            } else {
+                stringValue = stringValue.slice(0, -1);
+                if (stringValue === '-') {
+                    stringValue = '0';
                 }
-            case 'plus-minus':
-                {
-                    if (stringValue != 0) {
-                        stringValue *= -1;
-                    } else {
-                        this.negate = !this.negate;
-                    }
-                    break;
-                }
-            case 'backspace':
-                {
-                    if (stringValue.length <= 1) {
-                        stringValue = '0';
-                    } else {
-                        stringValue = stringValue.slice(0, -1);
-                        if (stringValue === '-') {
-                            stringValue = '0';
-                        }
-                    }
-                    break;
-                }
-            default:
-                {
-                    if (stringValue === '0') {
-                        stringValue = digit;
-                    } else {
-                        stringValue += digit;
-                    }
-                }
+            }
+            break;
+        }
+        default: {
+            if (stringValue === '0') {
+                stringValue = digit;
+            } else {
+                stringValue += digit;
+            }
+        }
         }
         if (stringValue !== '0') {
             if (this.negate) {
                 stringValue *= -1;
-                delete(this.negate);
+                delete (this.negate);
             }
         }
         this.stringValue = stringValue;
         e.preventDefault();
     }
     isLimited() {
-        return this.limited ? "limited" : "unlimited";
+        return this.limited ? 'limited' : 'unlimited';
     }
     _stringValueChanged() {
         this.set('value', parseFloat(this.stringValue, 10));
