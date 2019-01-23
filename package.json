@@ -5,10 +5,23 @@
   "repository": "git@github.com:KanoComponents/kwc-number-inputs.git",
   "author": "Kano Computing",
   "license": "MIT",
+  "scripts": {
+    "serve": "es6-server",
+    "serve-test": "web-tester serve **/*.test.js",
+    "test": "web-tester run **/*.test.js",
+    "test-ci": "yarn run --silent test > test-results.xml",
+    "lint": "eslint *.js",
+    "lint-ci": "yarn lint -f checkstyle -o eslint.xml",
+    "prepublishOnly": "yarn run test"
+  },
   "dependencies": {
     "@polymer/polymer": "^3.0.2"
   },
   "devDependencies": {
-    "@webcomponents/webcomponentsjs": "^2.0.0"
+    "@kano/es6-server": "^1.0.1",
+    "@kano/eslint-config": "^1.0.0",
+    "@kano/web-tester": "^1.0.0-alpha.6",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "eslint": "^5.12.1"
   }
 }

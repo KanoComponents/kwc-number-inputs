@@ -45,10 +45,10 @@ class KwcNumpad extends PolymerElement {
                 button[value='plus-minus'] {
                     display: none;
                 }
-                button.negative[value='plus-minus'] {
+                button.unlimited[value='plus-minus'] {
                     display: initial;
                 }
-                button.negative[value='backspace'] {
+                button.unlimited[value='backspace'] {
                     display: block;
                     width: 100%;
                 }
@@ -78,8 +78,8 @@ class KwcNumpad extends PolymerElement {
             <div class="row">
                 <button value=".">.</button>
                 <button value="0">0</button>
-                <button class$="[[isNegative()]]" value="plus-minus">+/-</button>
-                <button class$="[[isNegative()]]" value="backspace">
+                <button class$="[[isLimited()]]" value="plus-minus">+/-</button>
+                <button class$="[[isLimited()]]" value="backspace">
                     ${backspaceIcon}
                 </button>
             </div>
@@ -105,9 +105,9 @@ class KwcNumpad extends PolymerElement {
                 value: '0',
                 observer: '_stringValueChanged',
             },
-            negative: {
+            limited: {
                 type: Boolean,
-                value: true,
+                value: false,
             }
         };
     }
@@ -196,8 +196,8 @@ class KwcNumpad extends PolymerElement {
         this.stringValue = stringValue;
         e.preventDefault();
     }
-    isNegative() {
-        return this.negative ? "negative" : "";
+    isLimited() {
+        return this.limited ? "limited" : "unlimited";
     }
     _stringValueChanged() {
         this.set('value', parseFloat(this.stringValue, 10));
