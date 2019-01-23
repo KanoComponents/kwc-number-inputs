@@ -22,6 +22,7 @@
     "@kano/eslint-config": "^1.0.0",
     "@kano/web-tester": "^1.0.0-alpha.6",
     "@webcomponents/webcomponentsjs": "^2.0.0",
-    "eslint": "^5.12.1"
+    "eslint": "^5.12.1",
+    "eslint-plugin-import": "^2.15.0"
   }
 }

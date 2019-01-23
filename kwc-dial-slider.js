@@ -70,51 +70,50 @@ class KwcDialSlider extends PolymerElement {
     }
 
     attachListeners() {
-        this.shadowRoot.querySelector("kwc-slider").addEventListener("value-changed", (e) => {
+        this.shadowRoot.querySelector('kwc-slider').addEventListener('value-changed', (e) => {
             this.updateValue(e);
         });
 
-        this.shadowRoot.querySelector("kwc-dial").addEventListener("value-changed", (e) => {
+        this.shadowRoot.querySelector('kwc-dial').addEventListener('value-changed', (e) => {
             this.updateValue(e);
         });
     }
-    
     detachListeners() {
-        this.shadowRoot.querySelector("kwc-slider").removeEventListener("value-changed", (e) => {
+        this.shadowRoot.querySelector('kwc-slider').removeEventListener('value-changed', (e) => {
             this.updateValue(e);
         });
 
-        this.shadowRoot.querySelector("kwc-dial").removeEventListener("value-changed", (e) => {
+        this.shadowRoot.querySelector('kwc-dial').removeEventListener('value-changed', (e) => {
             this.updateValue(e);
         });
     }
 
     updateValue(e) {
-        this.set("value", e.detail.value);
+        this.set('value', e.detail.value);
     }
 
     _valueChanged() {
-        let slider = this.shadowRoot.querySelector('kwc-slider');
-        let dial = this.shadowRoot.querySelector('kwc-dial');
+        const slider = this.shadowRoot.querySelector('kwc-slider');
+        const dial = this.shadowRoot.querySelector('kwc-dial');
 
-        slider.set("value", this.value);
-        dial.set("value", this.value);
+        slider.set('value', this.value);
+        dial.set('value', this.value);
     }
 
     applyRange() {
-        let min = this.min;
-        let max = this.max;
+        const { min } = this;
+        const { max } = this;
 
-        this.shadowRoot.querySelector("kwc-slider").setAttribute("min", min);
-        this.shadowRoot.querySelector("kwc-slider").setAttribute("max", max);
+        this.shadowRoot.querySelector('kwc-slider').setAttribute('min', min);
+        this.shadowRoot.querySelector('kwc-slider').setAttribute('max', max);
     }
 
     applyDialAttributes() {
-        let prefix = this.prefix;
-        let suffix = this.suffix;
+        const { prefix } = this;
+        const { suffix } = this;
 
-        this.shadowRoot.querySelector("kwc-dial").setAttribute("prefix", prefix);
-        this.shadowRoot.querySelector("kwc-dial").setAttribute("suffix", suffix);
+        this.shadowRoot.querySelector('kwc-dial').setAttribute('prefix', prefix);
+        this.shadowRoot.querySelector('kwc-dial').setAttribute('suffix', suffix);
     }
 }
 customElements.define(KwcDialSlider.is, KwcDialSlider);

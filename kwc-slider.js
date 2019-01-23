@@ -91,7 +91,7 @@ class KwcSlider extends PolymerElement {
                 type: Number,
                 value: 100,
                 notify: true,
-            }
+            },
         };
     }
 
@@ -107,7 +107,7 @@ class KwcSlider extends PolymerElement {
     }
 
     attachListeners() {
-        let horizontalSlider = this.shadowRoot.querySelector('#horizontalSlider');
+        const horizontalSlider = this.shadowRoot.querySelector('#horizontalSlider');
 
         horizontalSlider.addEventListener('onchange', () => {
             this.set('value', horizontalSlider.value);
@@ -117,9 +117,8 @@ class KwcSlider extends PolymerElement {
             this.set('value', horizontalSlider.value);
         });
     }
-    
     detachListeners() {
-        let horizontalSlider = this.shadowRoot.querySelector('#horizontalSlider');
+        const horizontalSlider = this.shadowRoot.querySelector('#horizontalSlider');
 
         horizontalSlider.removeEventListener('onchange', () => {
             this.set('value', horizontalSlider.value);
@@ -131,8 +130,8 @@ class KwcSlider extends PolymerElement {
     }
 
     applyMax() {
-        let max = this.getAttribute("max");
-        this.set("max", max);
+        const max = this.getAttribute('max');
+        this.set('max', max);
     }
 }
 customElements.define(KwcSlider.is, KwcSlider);

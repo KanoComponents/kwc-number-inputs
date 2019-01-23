@@ -9,7 +9,7 @@ const limited = fixture`
     <kwc-numpad limited></kwc-numpad>
 `;
 
-suite('kwc-numpad', () =>{
+suite('kwc-numpad', () => {
     test('instantiate', () => {
         const el = basic();
         assert(el instanceof customElements.get('kwc-numpad'));
