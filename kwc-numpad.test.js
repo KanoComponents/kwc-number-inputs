@@ -1,5 +1,4 @@
 /* globals fixture, suite, test, assert */
-// import { click } from '@polymer/iron-test-helpers/mock-interactions.js';
 import './kwc-numpad.js';
 
 const basic = fixture`
