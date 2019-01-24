@@ -45,45 +45,45 @@ suite('kwc-numpad', () => {
     test('output number shows 123 on click of buttons 1, 2, 3', () => {
         const el = basic();
         const buttonClicks = [1, 2, 3];
-        buttonClicks.forEach((click) => {
-            const button = el.root.querySelector(`button[value="${click}"]`);
-            button.click();
+        buttonClicks.forEach((buttonClick) => {
+            const button = el.root.querySelector(`button[value="${buttonClick}"]`);
+            click(button);
         });
         assert.equal(el.stringValue, '123');
     });
     test('output number shows 12 on click of buttons 1, 2, 3, delete', () => {
         const el = basic();
         const buttonClicks = [1, 2, 3, 'backspace'];
-        buttonClicks.forEach((click) => {
-            const button = el.root.querySelector(`button[value="${click}"]`);
-            button.click();
+        buttonClicks.forEach((buttonClick) => {
+            const button = el.root.querySelector(`button[value="${buttonClick}"]`);
+            click(button);
         });
         assert.equal(el.stringValue, '12');
     });
     test('output number shows 1.23 on click of buttons 1, ., 2, 3', () => {
         const el = basic();
         const buttonClicks = [1, '.', 2, 3];
-        buttonClicks.forEach((click) => {
-            const button = el.root.querySelector(`button[value="${click}"]`);
-            button.click();
+        buttonClicks.forEach((buttonClick) => {
+            const button = el.root.querySelector(`button[value="${buttonClick}"]`);
+            click(button);
         });
         assert.equal(el.stringValue, '1.23');
     });
     test('output number shows -1.23 on click of buttons +/-, 1, ., 2, 3', () => {
         const el = basic();
         const buttonClicks = ['plus-minus', 1, '.', 2, 3];
-        buttonClicks.forEach((click) => {
-            const button = el.root.querySelector(`button[value="${click}"]`);
-            button.click();
+        buttonClicks.forEach((buttonClick) => {
+            const button = el.root.querySelector(`button[value="${buttonClick}"]`);
+            click(button);
         });
         assert.equal(el.stringValue, '-1.23');
     });
     test('output number shows 432 on click of buttons 4, 6, delete, +/-, 3, 2, +/-', () => {
         const el = basic();
         const buttonClicks = [4, 6, 'backspace', 'plus-minus', 3, 2, 'plus-minus'];
-        buttonClicks.forEach((click) => {
-            const button = el.root.querySelector(`button[value="${click}"]`);
-            button.click();
+        buttonClicks.forEach((buttonClick) => {
+            const button = el.root.querySelector(`button[value="${buttonClick}"]`);
+            click(button);
         });
         assert.equal(el.stringValue, '432');
     });
