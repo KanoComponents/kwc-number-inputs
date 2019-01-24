@@ -98,7 +98,6 @@ class KwcSlider extends PolymerElement {
     connectedCallback() {
         super.connectedCallback();
         this.attachListeners();
-        this.applyMax();
     }
 
     disconnectedCallback() {
@@ -127,11 +126,6 @@ class KwcSlider extends PolymerElement {
         horizontalSlider.removeEventListener('input', () => {
             this.set('value', horizontalSlider.value);
         });
-    }
-
-    applyMax() {
-        const max = this.getAttribute('max');
-        this.set('max', max);
     }
 }
 customElements.define(KwcSlider.is, KwcSlider);

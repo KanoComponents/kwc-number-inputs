@@ -65,6 +65,20 @@
     serve-static "^1.13.2"
     yargs "^12.0.1"
 
+"@polymer/iron-test-helpers@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@polymer/iron-test-helpers/-/iron-test-helpers-3.0.1.tgz#ec2b9c6567e2967a191b3d800a04b1167b2d1394"
+  integrity sha512-2R7dnGcW2eg95i7LhYWWUO4AlAk6qXsPnKoyeN2R1t0km0ECMx0jjwqeLwCo8/7LwuVPZSiarI4DK7jyU7fJLQ==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/polymer@^3.0.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.1.0.tgz#3e1b7447a1e350fd654e1823def655d0f0828a70"
+  integrity sha512-hwN8IMERsFATz/9dSMxYHL+84J9uBkPuuarxJWlTsppZ4CAYTZKnepBfNrKoyNsafBmA3yXBiiKPPf+fJtza7A==
+  dependencies:
+    "@webcomponents/shadycss" "^1.5.2"
+
 "@polymer/polymer@^3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.0.2.tgz#626e6f9fae9716b0962ce0211e21df242153eab2"
@@ -74,6 +88,11 @@
 "@webcomponents/shadycss@^1.2.0":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.2.1.tgz#6e4a88534657807c8398b4bc196d0ca492182d54"
+
+"@webcomponents/shadycss@^1.5.2":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.8.0.tgz#10340b87626f876841033b21b5221c3701252e10"
+  integrity sha512-bx0TzeZ11VqYDGLuXfznen8+4u0hADk2dD5RNMFxWL9MM4c5NXCDCgNXgssb4i2zQOos/GGe4tl5AuE0LzJkLA==
 
 "@webcomponents/webcomponentsjs@^2.0.0":
   version "2.0.0"
@@ -600,7 +619,7 @@ eslint-plugin-html@^4.0.2:
   dependencies:
     htmlparser2 "^3.8.2"
 
-eslint-plugin-import@^2.8.0:
+eslint-plugin-import@^2.15.0, eslint-plugin-import@^2.8.0:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.15.0.tgz#d8f3c28b8988ccde5df964706faa7c1e52f0602a"
   integrity sha512-LEHqgR+RcnpGqYW7h9WMkPb/tP+ekKxWdQDztfTtZeV43IHF+X8lXU+1HOCcR4oXD24qRgEwNSxIweD5uNKGVg==

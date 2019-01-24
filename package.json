@@ -15,6 +15,7 @@
     "prepublishOnly": "yarn run test"
   },
   "dependencies": {
+    "@polymer/iron-test-helpers": "^3.0.1",
     "@polymer/polymer": "^3.0.2"
   },
   "devDependencies": {
