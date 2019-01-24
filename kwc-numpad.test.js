@@ -1,4 +1,5 @@
 /* globals fixture, suite, test, assert */
+import { click } from '@polymer/iron-test-helpers/mock-interactions.js';
 import './kwc-numpad.js';
 
 const basic = fixture`
@@ -29,7 +30,7 @@ suite('kwc-numpad', () => {
             assert.equal(e.target.getAttribute('value'), 1);
             cb();
         });
-        buttonOne.click();
+        click(buttonOne);
     });
     test('output number shows 1 on click of button 1', (cb) => {
         const el = basic();
@@ -39,7 +40,7 @@ suite('kwc-numpad', () => {
             assert.equal(el.stringValue, '1');
             cb();
         });
-        buttonOne.click();
+        click(buttonOne);
     });
     test('output number shows 123 on click of buttons 1, 2, 3', () => {
         const el = basic();
