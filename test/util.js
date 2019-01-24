@@ -38,7 +38,24 @@ export function touchtrack(target, dx, dy, steps) {
     touchend(target, xy2);
 }
 
+export function clickElement(el) {
+    const event = document.createEvent('MouseEvent');
+    event.initMouseEvent(
+        'click',
+        true /* bubble */,
+        true /* cancelable */,
+        window,
+        null,
+        0, 0, 0, 0, /* coordinates */
+        false, false, false, false, /* modifier keys */
+        0, /* left */
+        null,
+    );
+    el.dispatchEvent(event);
+}
+
 export default {
     touchmove,
     touchtrack,
+    clickElement,
 };
