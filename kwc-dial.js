@@ -298,7 +298,7 @@ class KwcDial extends PolymerElement {
             const dx = x - (this.containerRect.left + (this.containerRect.width / 2));
             const dy = y - (this.containerRect.top + (this.containerRect.height / 2));
             const atan = Math.atan2(dx, dy);
-            const deg = -atan / ((Math.PI / 180) + 180);
+            const deg = (-atan / (Math.PI / 180)) + 180;
 
             this.set('value', Math.floor(deg));
         }
@@ -324,8 +324,8 @@ class KwcDial extends PolymerElement {
         const sliderRect = this._getSliderRect();
         const sliderH2 = sliderRect.height / 2;
         const sliderW2 = sliderRect.width / 2;
-        let x = Math.round(radius * Math.sin((this.value * Math.PI) / 180));
-        let y = Math.round(radius * -Math.cos((this.value * Math.PI) / 180));
+        let x = Math.round(radius * Math.sin(this.value * (Math.PI / 180)));
+        let y = Math.round(radius * -Math.cos(this.value * (Math.PI / 180)));
 
         x += radius - sliderW2;
         y += radius - sliderH2;
