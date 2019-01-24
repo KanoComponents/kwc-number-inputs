@@ -1,5 +1,5 @@
 /* globals fixture, suite, test, assert */
-import { click } from '@polymer/iron-test-helpers/mock-interactions.js';
+// import { click } from '@polymer/iron-test-helpers/mock-interactions.js';
 import './kwc-numpad.js';
 
 const basic = fixture`
@@ -22,32 +22,18 @@ suite('kwc-numpad', () => {
         assert.equal(el.stringValue, '0');
         assert.equal(!el.limited, true);
     });
-    test('click of button 1 gets value', (cb) => {
+    test('output number shows 1 on click of button 1', () => {
         const el = basic();
         const buttonOne = el.root.querySelector('button[value="1"]');
-
-        buttonOne.addEventListener('click', (e) => {
-            assert.equal(e.target.getAttribute('value'), 1);
-            cb();
-        });
-        click(buttonOne);
-    });
-    test('output number shows 1 on click of button 1', (cb) => {
-        const el = basic();
-        const buttonOne = el.root.querySelector('button[value="1"]');
-
-        buttonOne.addEventListener('click', () => {
-            assert.equal(el.stringValue, '1');
-            cb();
-        });
-        click(buttonOne);
+        buttonOne.click();
+        assert.equal(el.stringValue, '1');
     });
     test('output number shows 123 on click of buttons 1, 2, 3', () => {
         const el = basic();
         const buttonClicks = [1, 2, 3];
         buttonClicks.forEach((buttonClick) => {
             const button = el.root.querySelector(`button[value="${buttonClick}"]`);
-            click(button);
+            button.click();
         });
         assert.equal(el.stringValue, '123');
     });
@@ -56,7 +42,7 @@ suite('kwc-numpad', () => {
         const buttonClicks = [1, 2, 3, 'backspace'];
         buttonClicks.forEach((buttonClick) => {
             const button = el.root.querySelector(`button[value="${buttonClick}"]`);
-            click(button);
+            button.click();
         });
         assert.equal(el.stringValue, '12');
     });
@@ -65,7 +51,7 @@ suite('kwc-numpad', () => {
         const buttonClicks = [1, '.', 2, 3];
         buttonClicks.forEach((buttonClick) => {
             const button = el.root.querySelector(`button[value="${buttonClick}"]`);
-            click(button);
+            button.click();
         });
         assert.equal(el.stringValue, '1.23');
     });
@@ -74,7 +60,7 @@ suite('kwc-numpad', () => {
         const buttonClicks = ['plus-minus', 1, '.', 2, 3];
         buttonClicks.forEach((buttonClick) => {
             const button = el.root.querySelector(`button[value="${buttonClick}"]`);
-            click(button);
+            button.click();
         });
         assert.equal(el.stringValue, '-1.23');
     });
@@ -83,7 +69,7 @@ suite('kwc-numpad', () => {
         const buttonClicks = [4, 6, 'backspace', 'plus-minus', 3, 2, 'plus-minus'];
         buttonClicks.forEach((buttonClick) => {
             const button = el.root.querySelector(`button[value="${buttonClick}"]`);
-            click(button);
+            button.click();
         });
         assert.equal(el.stringValue, '432');
     });
