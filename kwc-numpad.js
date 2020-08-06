@@ -20,7 +20,7 @@ class KwcNumpad extends PolymerElement {
                     -webkit-user-select: none;
                     user-select: none;
                 }
-                .row {
+                .numpad-row {
                     white-space: nowrap;
                 }
                 button {
@@ -37,7 +37,7 @@ class KwcNumpad extends PolymerElement {
                     font-weight: 600;
                     touch-action: manipulation;
                     transition: background-color .5s ease;
-                    -webkit-tap-highlight-color: rgba(0,0,0,0); 
+                    -webkit-tap-highlight-color: rgba(0,0,0,0);
                 }
                 button[value='backspace'] svg {
                     width: 20px;
@@ -67,22 +67,22 @@ class KwcNumpad extends PolymerElement {
                     outline: none;
                 }
             </style>
-            <div class="row">
+            <div class="numpad-row">
                 <button value="1">1</button>
                 <button value="2">2</button>
                 <button value="3">3</button>
             </div>
-            <div class="row">
+            <div class="numpad-row">
                 <button value="4">4</button>
                 <button value="5">5</button>
                 <button value="6">6</button>
             </div>
-            <div class="row">
+            <div class="numpad-row">
                 <button value="7">7</button>
                 <button value="8">8</button>
                 <button value="9">9</button>
             </div>
-            <div class="row">
+            <div class="numpad-row">
                 <button value=".">.</button>
                 <button value="0">0</button>
                 <button class$="[[isLimited()]]" value="plus-minus">+/-</button>
