@@ -1,6 +1,6 @@
 {
   "name": "@kano/kwc-number-inputs",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "index.js",
   "repository": "git@github.com:KanoComponents/kwc-number-inputs.git",
   "author": "Kano Computing",
